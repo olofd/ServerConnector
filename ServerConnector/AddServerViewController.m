@@ -14,6 +14,7 @@
 @synthesize name;
 @synthesize arrayWithFields, arrayWithPlaceHolders;
 @synthesize tableView;
+@synthesize delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,7 +35,8 @@
 }
 
 - (IBAction)cancel:(id)sender {
-    [tableView reloadData];
+    
+    [delegate dissmiss];
 }
 
 - (IBAction)save:(id)sender {
@@ -46,16 +48,14 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 
-    return 5;
+    return [self.arrayWithFields count];
 }
 -(UITableViewCell *)tableView:(UITableView *)tableViewIn cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableViewIn dequeueReusableCellWithIdentifier:@"ReUsedCell"];
-    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+   
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                    reuseIdentifier:@"REUSe"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
-
     
     [cell.contentView addSubview:[arrayWithFields objectAtIndex:indexPath.row]];
 
@@ -78,6 +78,8 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
+    
+    //Setting up the textfields with placeholdertext, frame, delegate and returnkeytype.
     self.arrayWithPlaceHolders = [[NSArray alloc] initWithObjects:@"Name", @"IP/DNS", @"Port", @"Root", @"ID", nil];
     
     CGRect frame = CGRectMake(20.0, 8.0, 260, 31);

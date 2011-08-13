@@ -12,6 +12,7 @@
 @protocol AddServerDelegate <NSObject>
 
 -(NSArray *)didAddServerNowDissmiss;
+-(void)dissmiss;
     
 @end
 @interface AddServerViewController : UIViewController <UITableViewDataSource, UITextFieldDelegate>
@@ -34,8 +35,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
-@property (strong, nonatomic) IBOutlet UITextField *name;
 
+@property (weak, nonatomic) id <AddServerDelegate> delegate;
+@property (strong, nonatomic) IBOutlet UITextField *name;
 @property (strong, nonatomic) NSArray *arrayWithPlaceHolders;
 @property (strong, nonatomic) NSArray *arrayWithFields;
 

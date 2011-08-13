@@ -8,9 +8,26 @@
 
 #import "ViewController.h"
 #import "PlistServerController.h"
+#import "AddServerViewController.h"
 
 @implementation ViewController
 @synthesize pickerView;
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([[segue identifier] isEqualToString:@"addServer"])
+    {
+        AddServerViewController *addServer = [segue destinationViewController];
+        addServer.delegate = self;
+         NSLog(@"HEJBAJS");   
+    }
+    
+
+}
+- (void)dissmiss;
+{
+    [self dismissModalViewControllerAnimated:YES];  
+}
 
 - (void)didReceiveMemoryWarning
 {
