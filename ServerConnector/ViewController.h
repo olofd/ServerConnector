@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AddServerViewController.h"
+#import "PlistServerController.h"
 
 @interface ViewController : UIViewController<UIPickerViewDataSource, AddServerDelegate>
 {
@@ -15,11 +16,19 @@
     UIPickerView *pickerView;
     NSMutableArray *arrayColors;
     
+    PlistServerController *plistController;
+    
 
 }
 - (IBAction)addServer:(id)sender;
 - (NSString *)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component;
+
+//Protocol actions:
 - (void)dissmiss;
+- (void)didAddServerNowDissmissWithDict:(NSDictionary *)dict;
+
+//Propertys
 @property (strong, nonatomic) IBOutlet UIPickerView *pickerView;
+@property (strong, nonatomic) PlistServerController *plistController;
 
 @end

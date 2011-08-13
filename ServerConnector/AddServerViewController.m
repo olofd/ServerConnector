@@ -8,6 +8,7 @@
 
 #import "AddServerViewController.h"
 #import "InputCellTableViewCell.h"
+#import "PlistServerController.h"
 
 @implementation AddServerViewController
 
@@ -41,7 +42,17 @@
 
 - (IBAction)save:(id)sender {
 
+    NSMutableArray *arrayWithTextFromFields = [[NSMutableArray alloc] init];
     
+    for (id i in self.arrayWithFields)
+    {
+        [arrayWithTextFromFields addObject:[i text]];
+    }
+    
+    NSDictionary *dict = [[NSDictionary alloc] initWithObjects:arrayWithTextFromFields forKeys:self.arrayWithPlaceHolders];
+    
+    
+    [delegate didAddServerNowDissmissWithDict:dict];
    
 }
 

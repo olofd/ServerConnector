@@ -12,6 +12,7 @@
 
 @implementation ViewController
 @synthesize pickerView;
+@synthesize plistController;
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -27,6 +28,15 @@
 - (void)dissmiss;
 {
     [self dismissModalViewControllerAnimated:YES];  
+}
+
+- (void)didAddServerNowDissmissWithDict:(NSDictionary *)dict;
+{
+    plistController = [[PlistServerController alloc] init];
+    
+    [plistController writePlistWithDictionaryWithServerConnections:dict];
+    [self dismissModalViewControllerAnimated:YES];
+    [pickerView reloadAllComponents];
 }
 
 - (void)didReceiveMemoryWarning
