@@ -9,10 +9,12 @@
 #import "ViewController.h"
 #import "PlistServerController.h"
 #import "AddServerViewController.h"
+#import "DetailsViewController.h"
 
 @implementation ViewController
 @synthesize pickerView;
 @synthesize plistController;
+
 
 @synthesize arrayWithServerConnections;
 
@@ -22,11 +24,17 @@
     {
         AddServerViewController *addServer = [segue destinationViewController];
         addServer.delegate = self;
-         NSLog(@"HEJBAJS");   
     }
-    
+    if([[segue identifier] isEqualToString:@"showServerDetails"])
+    {
+        DetailsViewController *detailsViewController = [segue destinationViewController];
+       // detailsViewController.delegate = self;
+        detailsViewController.dictWithServerDetails = [arrayWithServerConnections objectAtIndex:[pickerView selectedRowInComponent:0]];
+        NSLog(@"HEJBAJS");   
+    }
 
 }
+
 - (void)dissmiss;
 {
     [self dismissModalViewControllerAnimated:YES];  

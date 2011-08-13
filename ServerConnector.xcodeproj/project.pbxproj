@@ -23,6 +23,7 @@
 		8CAE4E4E13F55D5700E310BE /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CAE4E4013F55D5700E310BE /* SBJsonTokeniser.m */; };
 		8CAE4E4F13F55D5700E310BE /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CAE4E4213F55D5700E310BE /* SBJsonUTF8Stream.m */; };
 		8CAE4E5013F55D5700E310BE /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CAE4E4413F55D5700E310BE /* SBJsonWriter.m */; };
+		8CB368BC13F72F140024C418 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB368BB13F72F140024C418 /* DetailsViewController.m */; };
 		8CDAD5FD13F56F570080B02F /* AddServerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CDAD5FC13F56F570080B02F /* AddServerViewController.m */; };
 		8CE4F47613F1C0230004B776 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CE4F47513F1C0230004B776 /* UIKit.framework */; };
 		8CE4F47813F1C0230004B776 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CE4F47713F1C0230004B776 /* Foundation.framework */; };
@@ -82,6 +83,8 @@
 		8CAE4E4213F55D5700E310BE /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonUTF8Stream.m; sourceTree = "<group>"; };
 		8CAE4E4313F55D5700E310BE /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		8CAE4E4413F55D5700E310BE /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		8CB368BA13F72F140024C418 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		8CB368BB13F72F140024C418 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		8CDAD5FB13F56F570080B02F /* AddServerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddServerViewController.h; sourceTree = "<group>"; };
 		8CDAD5FC13F56F570080B02F /* AddServerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddServerViewController.m; sourceTree = "<group>"; };
 		8CE4F47113F1C0230004B776 /* ServerConnector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ServerConnector.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -204,6 +207,8 @@
 				8CE4F48313F1C0230004B776 /* AppDelegate.m */,
 				8CE4F48513F1C0230004B776 /* MainStoryboard_iPhone.storyboard */,
 				8CE4F48813F1C0230004B776 /* MainStoryboard_iPad.storyboard */,
+				8CB368BA13F72F140024C418 /* DetailsViewController.h */,
+				8CB368BB13F72F140024C418 /* DetailsViewController.m */,
 				8C593CB513F592FF00CF1F03 /* InputCellTableViewCell.h */,
 				8C593CB613F592FF00CF1F03 /* InputCellTableViewCell.m */,
 				8CE4F48B13F1C0230004B776 /* ViewController.h */,
@@ -378,6 +383,7 @@
 				8CAE4E5013F55D5700E310BE /* SBJsonWriter.m in Sources */,
 				8CDAD5FD13F56F570080B02F /* AddServerViewController.m in Sources */,
 				8C593CB713F592FF00CF1F03 /* InputCellTableViewCell.m in Sources */,
+				8CB368BC13F72F140024C418 /* DetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
