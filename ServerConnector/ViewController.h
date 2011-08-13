@@ -14,14 +14,16 @@
 {
     
     UIPickerView *pickerView;
-    NSMutableArray *arrayColors;
+    NSArray *arrayWithServerConnections;
     
     PlistServerController *plistController;
     
 
 }
+
 - (IBAction)addServer:(id)sender;
 - (NSString *)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component;
+- (void)reloadServerConnections;
 
 //Protocol actions:
 - (void)dissmiss;
@@ -30,5 +32,6 @@
 //Propertys
 @property (strong, nonatomic) IBOutlet UIPickerView *pickerView;
 @property (strong, nonatomic) PlistServerController *plistController;
+@property (strong, nonatomic) NSArray *arrayWithServerConnections;
 
 @end

@@ -14,6 +14,8 @@
 @synthesize pickerView;
 @synthesize plistController;
 
+@synthesize arrayWithServerConnections;
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([[segue identifier] isEqualToString:@"addServer"])
@@ -32,11 +34,12 @@
 
 - (void)didAddServerNowDissmissWithDict:(NSDictionary *)dict;
 {
-    plistController = [[PlistServerController alloc] init];
+
     
     [plistController writePlistWithDictionaryWithServerConnections:dict];
     [self dismissModalViewControllerAnimated:YES];
-    [pickerView reloadAllComponents];
+    [self reloadServerConnections];
+    [pickerView reloadComponent:0];
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,27 +56,24 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    arrayColors = [[NSMutableArray alloc] init];
-    [arrayColors addObject:@"Red"];
-    [arrayColors addObject:@"Orange"];
-    [arrayColors addObject:@"Yellow"];
-    [arrayColors addObject:@"Green"];
-    [arrayColors addObject:@"Blue"];
-    [arrayColors addObject:@"Indigo"];
-    [arrayColors addObject:@"Violet"];
+
+    plistController = [[PlistServerController alloc] init];
     
-    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-    [dict setValue:@"Hej" forKey:@"Nej"];
-    [dict setValue:arrayColors forKey:@"Array"];
+    [self reloadServerConnections];
+    NSLog(@"%@", arrayWithServerConnections);
+
     
-    PlistServerController *plistController = [[PlistServerController alloc] init];
-    
-    [plistController writePlistWithDictionaryWithServerConnections:dict];
-    
-    NSLog(@"%@", [plistController readPlistToArrayWithServerConnections]);
-    NSLog(@"%@", [plistController arrayWithServers]);
-    
-    
+}
+
+- (void)reloadServerConnections
+{
+    if (self.arrayWithServerConnections == nil)
+    {
+        self.arrayWithServerConnections = [[NSArray alloc]initWithArray:[plistController readPlistToArrayWithServerConnections]];
+    }else
+    {
+        self.arrayWithServerConnections = [plistController readPlistToArrayWithServerConnections];
+    }
 }
 
 - (void)viewDidUnload
@@ -116,11 +116,12 @@
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component;
 {
-    return 1;
+    return [self.arrayWithServerConnections count];
 }
 
 - (NSString *)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return [arrayColors objectAtIndex:row];
+    
+    return [[self.arrayWithServerConnections objectAtIndex:row]objectForKey:@"Name"];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

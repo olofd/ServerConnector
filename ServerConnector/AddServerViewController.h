@@ -30,6 +30,9 @@
 
 
 }
+
+- (void)errorDialogWithErrors:(NSMutableArray *)arrayWithErrors;
+
 - (IBAction)cancel:(id)sender;
 - (IBAction)save:(id)sender;
 

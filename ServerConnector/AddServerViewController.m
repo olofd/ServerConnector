@@ -42,19 +42,66 @@
 
 - (IBAction)save:(id)sender {
 
+    //Checks if any of the fields are empty, if they are, displays an error message.
     NSMutableArray *arrayWithTextFromFields = [[NSMutableArray alloc] init];
+    NSMutableArray *errorNames = [[NSMutableArray alloc] init];
     
     for (id i in self.arrayWithFields)
     {
-        [arrayWithTextFromFields addObject:[i text]];
+        if ([[i text] isEqualToString:@""] || [i text] == NULL)
+            {
+                [errorNames addObject:[i placeholder]];   
+            }else
+            {
+                [arrayWithTextFromFields addObject:[i text]];
+            }
     }
     
+    //If there are any errors, display error message:
+    if ([errorNames count] > 0)
+    {
+        [self errorDialogWithErrors:errorNames];
+    }else
+    {
+    
+    //Building array with serverinfo to pass to delegate:
     NSDictionary *dict = [[NSDictionary alloc] initWithObjects:arrayWithTextFromFields forKeys:self.arrayWithPlaceHolders];
     
-    
+    //Passing to delegate
     [delegate didAddServerNowDissmissWithDict:dict];
+    }
    
 }
+
+- (void)errorDialogWithErrors:(NSMutableArray *)arrayWithErrors
+{
+    
+    //Building a nice formated string from the arrayWithErrors:
+    NSString *stringWithErrorMessage = [NSString stringWithFormat:@"You must enter: \n"];
+    
+    NSMutableString *stringToConcatenate = [[NSMutableString alloc] initWithString:stringWithErrorMessage];
+    
+    //Adds each error to the string:
+    for (int i = 0;i < [arrayWithErrors count]; i++)
+    {
+        //If it's only one error to add, or only one error LEFT to add, do not add a comma (haha, I know =)
+        if ([arrayWithErrors count] - i == 1)
+        {
+          [stringToConcatenate appendFormat:@"%@", [arrayWithErrors objectAtIndex:i]];
+        }else
+        {
+        [stringToConcatenate appendFormat:@"%@, ", [arrayWithErrors objectAtIndex:i]];
+        }
+    
+    }
+	// open a dialog with just an OK button
+	UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:stringToConcatenate
+                                                             delegate:nil cancelButtonTitle:nil destructiveButtonTitle:@"OK" otherButtonTitles:nil];
+	actionSheet.actionSheetStyle = UIActionSheetStyleDefault;
+	[actionSheet showInView:self.view];	// show from our table view (pops up in the middle of the table)
+}
+
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {

@@ -24,8 +24,7 @@
 
 - (BOOL)writePlistWithDictionaryWithServerConnections:(NSDictionary *)dictionary
 {
-    
-    
+ 
     //dictionary = [self checkServerSpellingInDictionary:dictionary];
     //BOOL connectionCheck = [self checkServerConnectionWithDictionary:dictionary];
     BOOL connectionCheck = YES;
@@ -35,7 +34,7 @@
         
         NSString *error;
         NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-        NSString *plistPath = [rootPath stringByAppendingPathComponent:@"Data.plist"];
+        NSString *plistPath = [rootPath stringByAppendingPathComponent:@"ServerConnectorData.plist"];
     
     NSMutableArray *arrayWithDictionarys = [self readPlistToArrayWithServerConnections];
     if (arrayWithDictionarys == NULL)
@@ -69,7 +68,7 @@ else
 {
 
     NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSString *plistPath = [rootPath stringByAppendingPathComponent:@"Data.plist"];
+    NSString *plistPath = [rootPath stringByAppendingPathComponent:@"ServerConnectorData.plist"];
     
     NSMutableArray *arrayWithDictionarys = [NSMutableArray arrayWithContentsOfFile:plistPath];
     
