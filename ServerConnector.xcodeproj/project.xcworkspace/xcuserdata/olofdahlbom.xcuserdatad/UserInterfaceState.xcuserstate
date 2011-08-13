@@ -234,7 +234,7 @@
 		<string>IDEEditorArea</string>
 		<integer>0</integer>
 		<true/>
-		<string>ViewController.m</string>
+		<string>AddServerViewController.h</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -568,7 +568,7 @@
 		</dict>
 		<string>ServerConnector</string>
 		<string>ServerConnector</string>
-		<string>ViewController.m</string>
+		<string>AddServerViewController.h</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -1497,7 +1497,7 @@
 		<string>DocumentNavigableItemName</string>
 		<string>DocumentExtensionIdentifier</string>
 		<string>DocumentURL</string>
-		<string>public.objective-c-source</string>
+		<string>public.c-header</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -1618,7 +1618,7 @@
 				<integer>168</integer>
 			</dict>
 			<key>NS.string</key>
-			<string>file://localhost/Users/olofdahlbom/Documents/Xcode/ServerConnector/ServerConnector/ViewController.m</string>
+			<string>file://localhost/Users/olofdahlbom/Documents/Xcode/ServerConnector/ServerConnector/AddServerViewController.h</string>
 		</dict>
 		<dict>
 			<key>$classes</key>
@@ -1697,10 +1697,10 @@
 		<string>PrimaryDocumentVisibleCharacterRange</string>
 		<string>HideAllIssues</string>
 		<string>PrimaryDocumentSelectedCharacterRange</string>
-		<real>334948837.019889</real>
-		<string>{156, 695}</string>
-		<string>{626, 0}</string>
-		<string>-dissmiss</string>
+		<real>334949082.49374402</real>
+		<string>{0, 719}</string>
+		<string>{454, 0}</string>
+		<string>@interface AddServerViewController</string>
 		<string>Xcode.IDEKit.EditorDocument.SourceCode</string>
 		<dict>
 			<key>$class</key>
@@ -1719,7 +1719,7 @@
 				<integer>182</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/olofdahlbom/Documents/Xcode/ServerConnector/ServerConnector/ViewController.m</string>
+		<string>file://localhost/Users/olofdahlbom/Documents/Xcode/ServerConnector/ServerConnector/AddServerViewController.h</string>
 		<dict>
 			<key>$classes</key>
 			<array>
@@ -2975,19 +2975,15 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>475</integer>
+					<integer>476</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>480</integer>
+					<integer>481</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>483</integer>
-				</dict>
-				<dict>
-					<key>CF$UID</key>
-					<integer>514</integer>
+					<integer>484</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -2995,7 +2991,11 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>523</integer>
+					<integer>516</integer>
+				</dict>
+				<dict>
+					<key>CF$UID</key>
+					<integer>524</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -3059,7 +3059,7 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>465</integer>
+					<integer>466</integer>
 				</dict>
 			</array>
 		</dict>
@@ -3839,74 +3839,74 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>404</integer>
+					<integer>405</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>406</integer>
+					<integer>407</integer>
 				</dict>
 			</array>
 			<key>NS.objects</key>
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>408</integer>
+					<integer>409</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>412</integer>
+					<integer>413</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>416</integer>
+					<integer>417</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>420</integer>
+					<integer>421</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>423</integer>
+					<integer>424</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>427</integer>
+					<integer>428</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>431</integer>
+					<integer>432</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>435</integer>
+					<integer>436</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>438</integer>
+					<integer>439</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>442</integer>
+					<integer>443</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>446</integer>
+					<integer>447</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>450</integer>
+					<integer>451</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>454</integer>
+					<integer>455</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>458</integer>
+					<integer>459</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>461</integer>
+					<integer>462</integer>
 				</dict>
 			</array>
 		</dict>
@@ -4220,8 +4220,17 @@
 			<key>NS.relative</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>167</integer>
+				<integer>404</integer>
 			</dict>
+		</dict>
+		<dict>
+			<key>$class</key>
+			<dict>
+				<key>CF$UID</key>
+				<integer>168</integer>
+			</dict>
+			<key>NS.string</key>
+			<string>file://localhost/Users/olofdahlbom/Documents/Xcode/ServerConnector/ServerConnector/ViewController.m</string>
 		</dict>
 		<dict>
 			<key>$class</key>
@@ -4237,7 +4246,7 @@
 			<key>NS.relative</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>405</integer>
+				<integer>406</integer>
 			</dict>
 		</dict>
 		<dict>
@@ -4263,7 +4272,7 @@
 			<key>NS.relative</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>407</integer>
+				<integer>408</integer>
 			</dict>
 		</dict>
 		<dict>
@@ -4304,11 +4313,11 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>409</integer>
+					<integer>410</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>410</integer>
+					<integer>411</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -4316,11 +4325,11 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>411</integer>
+					<integer>412</integer>
 				</dict>
 			</array>
 		</dict>
-		<real>334948548.46641099</real>
+		<real>334949010.32256001</real>
 		<string>{565, 605}</string>
 		<string>{0, 0}</string>
 		<dict>
@@ -4352,11 +4361,11 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>413</integer>
+					<integer>414</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>414</integer>
+					<integer>415</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -4364,7 +4373,7 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>415</integer>
+					<integer>416</integer>
 				</dict>
 			</array>
 		</dict>
@@ -4400,11 +4409,11 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>417</integer>
+					<integer>418</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>418</integer>
+					<integer>419</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -4412,7 +4421,7 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>419</integer>
+					<integer>420</integer>
 				</dict>
 			</array>
 		</dict>
@@ -4448,11 +4457,11 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>421</integer>
+					<integer>422</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>422</integer>
+					<integer>423</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -4460,7 +4469,7 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>411</integer>
+					<integer>412</integer>
 				</dict>
 			</array>
 		</dict>
@@ -4495,11 +4504,11 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>424</integer>
+					<integer>425</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>425</integer>
+					<integer>426</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -4507,7 +4516,7 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>426</integer>
+					<integer>427</integer>
 				</dict>
 			</array>
 		</dict>
@@ -4543,11 +4552,11 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>428</integer>
+					<integer>429</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>429</integer>
+					<integer>430</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -4555,7 +4564,7 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>430</integer>
+					<integer>431</integer>
 				</dict>
 			</array>
 		</dict>
@@ -4591,11 +4600,11 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>432</integer>
+					<integer>433</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>433</integer>
+					<integer>434</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -4603,7 +4612,7 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>434</integer>
+					<integer>435</integer>
 				</dict>
 			</array>
 		</dict>
@@ -4639,11 +4648,11 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>436</integer>
+					<integer>437</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>437</integer>
+					<integer>438</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -4651,7 +4660,7 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>411</integer>
+					<integer>412</integer>
 				</dict>
 			</array>
 		</dict>
@@ -4667,30 +4676,30 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>234</integer>
+					<integer>172</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>235</integer>
+					<integer>173</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>236</integer>
+					<integer>174</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>237</integer>
+					<integer>175</integer>
 				</dict>
 			</array>
 			<key>NS.objects</key>
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>439</integer>
+					<integer>440</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>440</integer>
+					<integer>441</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -4698,13 +4707,13 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>441</integer>
+					<integer>442</integer>
 				</dict>
 			</array>
 		</dict>
-		<real>334947267.27367699</real>
-		<string>{459, 799}</string>
-		<string>{965, 0}</string>
+		<real>334949082.49290901</real>
+		<string>{0, 719}</string>
+		<string>{454, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -4734,11 +4743,11 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>443</integer>
+					<integer>444</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>444</integer>
+					<integer>445</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -4746,7 +4755,7 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>445</integer>
+					<integer>446</integer>
 				</dict>
 			</array>
 		</dict>
@@ -4782,11 +4791,11 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>447</integer>
+					<integer>448</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>448</integer>
+					<integer>449</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -4794,7 +4803,7 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>449</integer>
+					<integer>450</integer>
 				</dict>
 			</array>
 		</dict>
@@ -4830,11 +4839,11 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>451</integer>
+					<integer>452</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>452</integer>
+					<integer>453</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -4842,7 +4851,7 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>453</integer>
+					<integer>454</integer>
 				</dict>
 			</array>
 		</dict>
@@ -4878,11 +4887,11 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>455</integer>
+					<integer>456</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>456</integer>
+					<integer>457</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -4890,11 +4899,11 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>457</integer>
+					<integer>458</integer>
 				</dict>
 			</array>
 		</dict>
-		<real>334948837.01905203</real>
+		<real>334949004.75696099</real>
 		<string>{156, 695}</string>
 		<string>{626, 0}</string>
 		<dict>
@@ -4926,11 +4935,11 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>459</integer>
+					<integer>460</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>460</integer>
+					<integer>461</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -4938,7 +4947,7 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>411</integer>
+					<integer>412</integer>
 				</dict>
 			</array>
 		</dict>
@@ -4973,11 +4982,11 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>462</integer>
+					<integer>463</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>463</integer>
+					<integer>464</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -4985,7 +4994,7 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>464</integer>
+					<integer>465</integer>
 				</dict>
 			</array>
 		</dict>
@@ -5002,14 +5011,14 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>466</integer>
+					<integer>467</integer>
 				</dict>
 			</array>
 			<key>NS.objects</key>
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>468</integer>
+					<integer>469</integer>
 				</dict>
 			</array>
 		</dict>
@@ -5027,7 +5036,7 @@
 			<key>NS.relative</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>467</integer>
+				<integer>468</integer>
 			</dict>
 		</dict>
 		<string>x-xcode-log://1F494C15-9896-4012-8BA1-B7B0FC055DD9</string>
@@ -5041,14 +5050,14 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>469</integer>
+					<integer>470</integer>
 				</dict>
 			</array>
 			<key>NS.objects</key>
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>470</integer>
+					<integer>471</integer>
 				</dict>
 			</array>
 		</dict>
@@ -5063,7 +5072,7 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>471</integer>
+					<integer>472</integer>
 				</dict>
 			</array>
 		</dict>
@@ -5071,19 +5080,19 @@
 			<key>$class</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>474</integer>
+				<integer>475</integer>
 			</dict>
 			<key>documentURL</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>467</integer>
+				<integer>468</integer>
 			</dict>
 			<key>expandTranscript</key>
 			<false/>
 			<key>indexPath</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>472</integer>
+				<integer>473</integer>
 			</dict>
 			<key>timestamp</key>
 			<dict>
@@ -5095,7 +5104,7 @@
 			<key>$class</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>473</integer>
+				<integer>474</integer>
 			</dict>
 			<key>NSIndexPathLength</key>
 			<integer>1</integer>
@@ -5131,22 +5140,22 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>476</integer>
+					<integer>477</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>477</integer>
+					<integer>478</integer>
 				</dict>
 			</array>
 			<key>NS.objects</key>
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>478</integer>
+					<integer>479</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>479</integer>
+					<integer>480</integer>
 				</dict>
 			</array>
 		</dict>
@@ -5164,14 +5173,14 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>481</integer>
+					<integer>482</integer>
 				</dict>
 			</array>
 			<key>NS.objects</key>
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>482</integer>
+					<integer>483</integer>
 				</dict>
 			</array>
 		</dict>
@@ -5187,26 +5196,26 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>484</integer>
-				</dict>
-				<dict>
-					<key>CF$UID</key>
 					<integer>485</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
 					<integer>486</integer>
 				</dict>
+				<dict>
+					<key>CF$UID</key>
+					<integer>487</integer>
+				</dict>
 			</array>
 			<key>NS.objects</key>
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>487</integer>
+					<integer>488</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>513</integer>
+					<integer>514</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -5227,19 +5236,19 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>488</integer>
+					<integer>489</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>495</integer>
+					<integer>496</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>499</integer>
+					<integer>500</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>504</integer>
+					<integer>505</integer>
 				</dict>
 			</array>
 		</dict>
@@ -5253,23 +5262,19 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>489</integer>
-				</dict>
-				<dict>
-					<key>CF$UID</key>
 					<integer>490</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
 					<integer>491</integer>
 				</dict>
-			</array>
-			<key>NS.objects</key>
-			<array>
 				<dict>
 					<key>CF$UID</key>
 					<integer>492</integer>
 				</dict>
+			</array>
+			<key>NS.objects</key>
+			<array>
 				<dict>
 					<key>CF$UID</key>
 					<integer>493</integer>
@@ -5277,6 +5282,10 @@
 				<dict>
 					<key>CF$UID</key>
 					<integer>494</integer>
+				</dict>
+				<dict>
+					<key>CF$UID</key>
+					<integer>495</integer>
 				</dict>
 			</array>
 		</dict>
@@ -5296,23 +5305,19 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>489</integer>
-				</dict>
-				<dict>
-					<key>CF$UID</key>
 					<integer>490</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
 					<integer>491</integer>
 				</dict>
+				<dict>
+					<key>CF$UID</key>
+					<integer>492</integer>
+				</dict>
 			</array>
 			<key>NS.objects</key>
 			<array>
-				<dict>
-					<key>CF$UID</key>
-					<integer>496</integer>
-				</dict>
 				<dict>
 					<key>CF$UID</key>
 					<integer>497</integer>
@@ -5320,6 +5325,10 @@
 				<dict>
 					<key>CF$UID</key>
 					<integer>498</integer>
+				</dict>
+				<dict>
+					<key>CF$UID</key>
+					<integer>499</integer>
 				</dict>
 			</array>
 		</dict>
@@ -5336,23 +5345,19 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>489</integer>
-				</dict>
-				<dict>
-					<key>CF$UID</key>
 					<integer>490</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
 					<integer>491</integer>
 				</dict>
+				<dict>
+					<key>CF$UID</key>
+					<integer>492</integer>
+				</dict>
 			</array>
 			<key>NS.objects</key>
 			<array>
-				<dict>
-					<key>CF$UID</key>
-					<integer>500</integer>
-				</dict>
 				<dict>
 					<key>CF$UID</key>
 					<integer>501</integer>
@@ -5360,6 +5365,10 @@
 				<dict>
 					<key>CF$UID</key>
 					<integer>502</integer>
+				</dict>
+				<dict>
+					<key>CF$UID</key>
+					<integer>503</integer>
 				</dict>
 			</array>
 		</dict>
@@ -5369,7 +5378,7 @@
 			<key>$class</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>503</integer>
+				<integer>504</integer>
 			</dict>
 			<key>NS.data</key>
 			<data>
@@ -5411,11 +5420,7 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>489</integer>
-				</dict>
-				<dict>
-					<key>CF$UID</key>
-					<integer>505</integer>
+					<integer>490</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -5423,22 +5428,26 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>491</integer>
-				</dict>
-				<dict>
-					<key>CF$UID</key>
 					<integer>507</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
+					<integer>492</integer>
+				</dict>
+				<dict>
+					<key>CF$UID</key>
 					<integer>508</integer>
+				</dict>
+				<dict>
+					<key>CF$UID</key>
+					<integer>509</integer>
 				</dict>
 			</array>
 			<key>NS.objects</key>
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>509</integer>
+					<integer>510</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -5446,11 +5455,11 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>510</integer>
+					<integer>511</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>512</integer>
+					<integer>513</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -5471,7 +5480,7 @@
 			<key>$class</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>511</integer>
+				<integer>512</integer>
 			</dict>
 			<key>NS.time</key>
 			<real>334948820.76367402</real>
@@ -5511,14 +5520,14 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>516</integer>
+					<integer>517</integer>
 				</dict>
 			</array>
 			<key>NS.objects</key>
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>518</integer>
+					<integer>519</integer>
 				</dict>
 			</array>
 		</dict>
@@ -5536,7 +5545,7 @@
 			<key>NS.relative</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>517</integer>
+				<integer>518</integer>
 			</dict>
 		</dict>
 		<string>file://localhost/Users/olofdahlbom/Documents/Xcode/ServerConnector/ServerConnector/en.lproj/MainStoryboard_iPhone.storyboard</string>
@@ -5550,22 +5559,22 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>519</integer>
+					<integer>520</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>520</integer>
+					<integer>521</integer>
 				</dict>
 			</array>
 			<key>NS.objects</key>
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>521</integer>
+					<integer>522</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>522</integer>
+					<integer>523</integer>
 				</dict>
 			</array>
 		</dict>
@@ -5583,35 +5592,31 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>524</integer>
+					<integer>525</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>526</integer>
+					<integer>527</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>528</integer>
+					<integer>529</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>530</integer>
+					<integer>531</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>532</integer>
+					<integer>533</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>534</integer>
+					<integer>535</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>536</integer>
-				</dict>
-				<dict>
-					<key>CF$UID</key>
-					<integer>538</integer>
+					<integer>537</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -5620,6 +5625,10 @@
 				<dict>
 					<key>CF$UID</key>
 					<integer>541</integer>
+				</dict>
+				<dict>
+					<key>CF$UID</key>
+					<integer>543</integer>
 				</dict>
 			</array>
 		</dict>
@@ -5637,10 +5646,10 @@
 			<key>NS.relative</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>525</integer>
+				<integer>526</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/olofdahlbom/Documents/Xcode/ServerConnector/ServerConnector/ViewController.m</string>
+		<string>file://localhost/Users/olofdahlbom/Documents/Xcode/ServerConnector/ServerConnector/AddServerViewController.h</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -5655,61 +5664,7 @@
 			<key>NS.relative</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>527</integer>
-			</dict>
-		</dict>
-		<string>file://localhost/Users/olofdahlbom/Documents/Xcode/ServerConnector/ServerConnector/AppDelegate.m</string>
-		<dict>
-			<key>$class</key>
-			<dict>
-				<key>CF$UID</key>
-				<integer>183</integer>
-			</dict>
-			<key>NS.base</key>
-			<dict>
-				<key>CF$UID</key>
-				<integer>0</integer>
-			</dict>
-			<key>NS.relative</key>
-			<dict>
-				<key>CF$UID</key>
-				<integer>529</integer>
-			</dict>
-		</dict>
-		<string>file://localhost/Users/olofdahlbom/Documents/Xcode/ServerConnector/ServerConnector/en.lproj/MainStoryboard_iPhone.storyboard</string>
-		<dict>
-			<key>$class</key>
-			<dict>
-				<key>CF$UID</key>
-				<integer>183</integer>
-			</dict>
-			<key>NS.base</key>
-			<dict>
-				<key>CF$UID</key>
-				<integer>0</integer>
-			</dict>
-			<key>NS.relative</key>
-			<dict>
-				<key>CF$UID</key>
-				<integer>531</integer>
-			</dict>
-		</dict>
-		<string>file://localhost/Users/olofdahlbom/Documents/Xcode/ServerConnector/ServerConnector/ViewController.h</string>
-		<dict>
-			<key>$class</key>
-			<dict>
-				<key>CF$UID</key>
-				<integer>183</integer>
-			</dict>
-			<key>NS.base</key>
-			<dict>
-				<key>CF$UID</key>
-				<integer>0</integer>
-			</dict>
-			<key>NS.relative</key>
-			<dict>
-				<key>CF$UID</key>
-				<integer>533</integer>
+				<integer>528</integer>
 			</dict>
 		</dict>
 		<string>file://localhost/Users/olofdahlbom/Documents/Xcode/ServerConnector/ServerConnector/AddServerViewController.m</string>
@@ -5727,7 +5682,79 @@
 			<key>NS.relative</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>535</integer>
+				<integer>530</integer>
+			</dict>
+		</dict>
+		<string>file://localhost/Users/olofdahlbom/Documents/Xcode/ServerConnector/ServerConnector/ViewController.m</string>
+		<dict>
+			<key>$class</key>
+			<dict>
+				<key>CF$UID</key>
+				<integer>183</integer>
+			</dict>
+			<key>NS.base</key>
+			<dict>
+				<key>CF$UID</key>
+				<integer>0</integer>
+			</dict>
+			<key>NS.relative</key>
+			<dict>
+				<key>CF$UID</key>
+				<integer>532</integer>
+			</dict>
+		</dict>
+		<string>file://localhost/Users/olofdahlbom/Documents/Xcode/ServerConnector/ServerConnector/AppDelegate.m</string>
+		<dict>
+			<key>$class</key>
+			<dict>
+				<key>CF$UID</key>
+				<integer>183</integer>
+			</dict>
+			<key>NS.base</key>
+			<dict>
+				<key>CF$UID</key>
+				<integer>0</integer>
+			</dict>
+			<key>NS.relative</key>
+			<dict>
+				<key>CF$UID</key>
+				<integer>534</integer>
+			</dict>
+		</dict>
+		<string>file://localhost/Users/olofdahlbom/Documents/Xcode/ServerConnector/ServerConnector/en.lproj/MainStoryboard_iPhone.storyboard</string>
+		<dict>
+			<key>$class</key>
+			<dict>
+				<key>CF$UID</key>
+				<integer>183</integer>
+			</dict>
+			<key>NS.base</key>
+			<dict>
+				<key>CF$UID</key>
+				<integer>0</integer>
+			</dict>
+			<key>NS.relative</key>
+			<dict>
+				<key>CF$UID</key>
+				<integer>536</integer>
+			</dict>
+		</dict>
+		<string>file://localhost/Users/olofdahlbom/Documents/Xcode/ServerConnector/ServerConnector/ViewController.h</string>
+		<dict>
+			<key>$class</key>
+			<dict>
+				<key>CF$UID</key>
+				<integer>183</integer>
+			</dict>
+			<key>NS.base</key>
+			<dict>
+				<key>CF$UID</key>
+				<integer>0</integer>
+			</dict>
+			<key>NS.relative</key>
+			<dict>
+				<key>CF$UID</key>
+				<integer>538</integer>
 			</dict>
 		</dict>
 		<string>file://localhost/Users/olofdahlbom/Documents/Xcode/ServerConnector/ServerConnector/en.lproj/MainStoryboard_iPad.storyboard</string>
@@ -5745,7 +5772,7 @@
 			<key>NS.relative</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>537</integer>
+				<integer>540</integer>
 			</dict>
 		</dict>
 		<string>file://localhost/Users/olofdahlbom/Documents/Xcode/ServerConnector/ServerConnector/main.m</string>
@@ -5763,24 +5790,7 @@
 			<key>NS.relative</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>244</integer>
-			</dict>
-		</dict>
-		<dict>
-			<key>$class</key>
-			<dict>
-				<key>CF$UID</key>
-				<integer>183</integer>
-			</dict>
-			<key>NS.base</key>
-			<dict>
-				<key>CF$UID</key>
-				<integer>0</integer>
-			</dict>
-			<key>NS.relative</key>
-			<dict>
-				<key>CF$UID</key>
-				<integer>540</integer>
+				<integer>542</integer>
 			</dict>
 		</dict>
 		<string>file://localhost/Users/olofdahlbom/Documents/Xcode/ServerConnector/ServerConnector/InputCellTableViewCell.m</string>
@@ -5798,7 +5808,7 @@
 			<key>NS.relative</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>542</integer>
+				<integer>544</integer>
 			</dict>
 		</dict>
 		<string>file://localhost/Users/olofdahlbom/Documents/Xcode/ServerConnector/ServerConnector/PlistServerController.m</string>

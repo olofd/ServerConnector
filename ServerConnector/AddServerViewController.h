@@ -11,7 +11,7 @@
 
 @protocol AddServerDelegate <NSObject>
 
--(NSArray *)didAddServerNowDissmiss;
+-(void)didAddServerNowDissmissWithDict:(NSDictionary *)dict;
 -(void)dissmiss;
     
 @end
