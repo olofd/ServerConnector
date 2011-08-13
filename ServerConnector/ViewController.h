@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<UIPickerViewDataSource>
+{
+    
+    UIPickerView *pickerView;
+    NSMutableArray *arrayColors;
+}
+- (IBAction)addServer:(id)sender;
+- (NSString *)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component;
+
+@property (strong, nonatomic) IBOutlet UIPickerView *pickerView;
 
 @end

@@ -7,8 +7,10 @@
 //
 
 #import "ViewController.h"
+#import "PlistServerController.h"
 
 @implementation ViewController
+@synthesize pickerView;
 
 - (void)didReceiveMemoryWarning
 {
@@ -20,12 +22,36 @@
 
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    arrayColors = [[NSMutableArray alloc] init];
+    [arrayColors addObject:@"Red"];
+    [arrayColors addObject:@"Orange"];
+    [arrayColors addObject:@"Yellow"];
+    [arrayColors addObject:@"Green"];
+    [arrayColors addObject:@"Blue"];
+    [arrayColors addObject:@"Indigo"];
+    [arrayColors addObject:@"Violet"];
+    
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    [dict setValue:@"Hej" forKey:@"Nej"];
+    [dict setValue:arrayColors forKey:@"Array"];
+    
+    PlistServerController *plistController = [[PlistServerController alloc] init];
+    
+    [plistController writePlistWithDictionaryWithServerConnections:dict];
+    
+    NSLog(@"%@", [plistController readPlistToArrayWithServerConnections]);
+    NSLog(@"%@", [plistController arrayWithServers]);
+    
+    
 }
 
 - (void)viewDidUnload
 {
+    [self setPickerView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -51,6 +77,25 @@
 	[super viewDidDisappear:animated];
 }
 
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView;
+{
+    return 1;
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    //type=[arrayNo objectAtIndex:row];
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component;
+{
+    return 1;
+}
+
+- (NSString *)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    return [arrayColors objectAtIndex:row];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
@@ -61,4 +106,7 @@
     }
 }
 
+- (IBAction)addServer:(id)sender {
+    NSLog(@"Hej");
+}
 @end
