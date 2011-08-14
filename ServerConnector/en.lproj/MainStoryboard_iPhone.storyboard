@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1910" systemVersion="11A511" targetRuntime="iOS.CocoaTouch" nextObjectID="161" propertyAccessControl="none" initialViewController="124">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1910" systemVersion="11A511" targetRuntime="iOS.CocoaTouch" nextObjectID="164" propertyAccessControl="none" initialViewController="124">
     <dependencies>
         <development defaultVersion="4200" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="911"/>
@@ -99,6 +99,10 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="whiteLarge" id="162">
+                                <rect key="frame" x="142" y="8" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
@@ -117,6 +121,8 @@
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="activityView" destination="162" id="163"/>
+                        <outlet property="imageView" destination="129" id="161"/>
                         <outlet property="labelWithActiveServerName" destination="158" id="160"/>
                         <outlet property="lableWithServerName" destination="18" id="152"/>
                         <outlet property="pickerView" destination="19" id="23"/>
@@ -289,6 +295,8 @@
                 <relationship kind="action" name="deleteServerAction:"/>
                 <relationship kind="action" name="reloadAction:"/>
                 <relationship kind="action" name="testServerAction:"/>
+                <relationship kind="outlet" name="activityView" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="labelWithActiveServerName" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="lableWithServerName" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="pickerView" candidateClass="UIPickerView"/>

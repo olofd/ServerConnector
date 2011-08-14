@@ -21,6 +21,8 @@
     
 
     UILabel *lableWithServerName;
+    UIImageView *imageView;
+    UIActivityIndicatorView *activityView;
 }
 - (IBAction)deleteServerAction:(id)sender;
 - (IBAction)testServerAction:(id)sender;
@@ -42,6 +44,8 @@
 
 
 //Propertys
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityView;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) IBOutlet UILabel *lableWithServerName;
 @property (strong, nonatomic) IBOutlet UIPickerView *pickerView;
 @property (strong, nonatomic) PlistServerController *plistController;

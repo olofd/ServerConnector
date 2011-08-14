@@ -13,6 +13,8 @@
 
 @implementation ViewController
 
+@synthesize activityView;
+@synthesize imageView;
 @synthesize lableWithServerName;
 @synthesize pickerView;
 @synthesize plistController;
@@ -49,7 +51,7 @@
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    
+    [activityView setHidden:YES];
 
     plistController = [[PlistServerController alloc] init];
     
@@ -139,6 +141,12 @@
 
 - (IBAction)testServerAction:(id)sender {
     
+    [self.imageView setHidden:YES];
+    [self.activityView setHidden:NO];
+    [self.activityView startAnimating];
+    dispatch_queue_t testServer = dispatch_queue_create("Test-Server-Thread", NULL);
+    dispatch_async(testServer, ^{
+    
     if ([self.arrayWithServerConnections count] > 0)
     {
      
@@ -151,7 +159,13 @@
 
     }
     }
+        
+        [self.imageView setHidden:NO];
+        [self.activityView setHidden:YES];
+        [self.activityView stopAnimating];
+    });
     
+    dispatch_release(testServer);
 }
 
 -(BOOL)testServerMethod
@@ -170,6 +184,14 @@
 
 - (IBAction)chooseServerAction:(id)sender {
     
+    [self.imageView setHidden:YES];
+    [self.activityView setHidden:NO];
+    [self.activityView startAnimating];
+    
+    dispatch_queue_t chooseServer = dispatch_queue_create("Choose Server Thread", NULL);
+    dispatch_async(chooseServer, ^{
+  
+    
     if ([self.arrayWithServerConnections count] > 0)
     {
     if([self testServerMethod])
@@ -181,6 +203,13 @@
         [self showMessageBoxWithString:@"This server is not responding and can't be choosen!"];
     }
     }
+        [self.imageView setHidden:NO];
+        [self.activityView setHidden:YES];
+        [self.activityView stopAnimating];
+    });
+    
+    
+    dispatch_release(chooseServer);
 }
 
 - (void)readActiveServerToLabel
@@ -227,6 +256,8 @@
     [self setLableWithServerName:nil];
     labelWithActiveServerName = nil;
     [self setLabelWithActiveServerName:nil];
+    [self setImageView:nil];
+    [self setActivityView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
