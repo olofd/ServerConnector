@@ -13,7 +13,12 @@
     NSArray *arrayWithServers;
 }
 
+- (void)deleteServerWithName:(NSString *)name;
+
 - (BOOL)writePlistWithDictionaryWithServerConnections:(NSDictionary *)dictionary;
+- (BOOL)writePlistWithArrayContaningAllConnections:(NSMutableArray *)arrayWithCompleteServerList;
+
+
 - (NSMutableArray *)readPlistToArrayWithServerConnections;
 - (NSDictionary *)checkServerSpellingInDictionary:(NSDictionary *)dictionary;
 - (NSString *)checkIfIPDNSHasHttpWithString:(NSString *)IPDNS;

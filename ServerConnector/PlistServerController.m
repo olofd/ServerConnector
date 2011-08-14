@@ -64,6 +64,38 @@ else
 }
 }
 
+- (BOOL)writePlistWithArrayContaningAllConnections:(NSMutableArray *)arrayWithCompleteServerList
+{
+    BOOL connectionCheck = YES;
+    if (connectionCheck == true)
+    {
+        
+        NSString *error;
+        NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+        NSString *plistPath = [rootPath stringByAppendingPathComponent:@"ServerConnectorData.plist"];
+
+        NSData *plistData = [NSPropertyListSerialization dataFromPropertyList:arrayWithCompleteServerList
+                                                                       format:NSPropertyListXMLFormat_v1_0
+                                                             errorDescription:&error];
+        if(plistData) {
+            [plistData writeToFile:plistPath atomically:YES];
+            NSLog(@"Funkis");
+        }
+        else {
+            NSLog(@"%@", error);
+        }
+        
+        [self readPlistToArrayWithServerConnections];
+        return true;
+    }
+    else
+    {
+        
+        return false;
+    }
+
+}
+
 - (NSArray *)readPlistToArrayWithServerConnections
 {
 
@@ -80,6 +112,41 @@ else
     }
     return NULL;
 }
+
+- (void)deleteServerWithName:(NSString *)name;
+{
+    NSMutableArray *arrayWithDeleter = [[NSMutableArray alloc] init];
+    
+    for (id i in self.arrayWithServers)
+         {
+             [arrayWithDeleter addObject:i];   
+         }
+    
+    int a;
+    bool didFindName;
+    
+     for (int i = 0; i < [self.arrayWithServers count];i++)
+    {
+        if ([[[self.arrayWithServers objectAtIndex:i]objectForKey:@"Name"] isEqualToString:name])
+        {
+            a = i;
+            didFindName = YES;
+        }
+    }
+    
+    if (didFindName == YES)
+    {
+    [arrayWithDeleter removeObjectAtIndex:a];
+    }
+    
+    
+    NSLog(@"%@", arrayWithDeleter);
+    
+    [self writePlistWithArrayContaningAllConnections:arrayWithDeleter];
+    
+    
+}
+
 
 - (NSDictionary *)checkServerSpellingInDictionary:(NSDictionary *)dictionary {
     

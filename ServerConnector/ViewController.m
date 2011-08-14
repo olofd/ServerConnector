@@ -12,6 +12,8 @@
 #import "DetailsViewController.h"
 
 @implementation ViewController
+
+@synthesize lableWithServerName;
 @synthesize pickerView;
 @synthesize plistController;
 
@@ -47,8 +49,9 @@
     [plistController writePlistWithDictionaryWithServerConnections:dict];
     [self dismissModalViewControllerAnimated:YES];
     [self reloadServerConnections];
-    [pickerView reloadComponent:0];
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -69,6 +72,13 @@
     
     [self reloadServerConnections];
     NSLog(@"%@", arrayWithServerConnections);
+    
+    
+    if ([self.arrayWithServerConnections count] == 0)
+    {
+        NSLog(@"Tom");
+    }
+    //[self pickerView:pickerView didSelectRow:0 inComponent:0];
 
     
 }
@@ -82,11 +92,15 @@
     {
         self.arrayWithServerConnections = [plistController readPlistToArrayWithServerConnections];
     }
+    
+    [pickerView reloadComponent:0];
+
 }
 
 - (void)viewDidUnload
 {
     [self setPickerView:nil];
+    [self setLableWithServerName:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -115,11 +129,16 @@
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView;
 {
     return 1;
+    
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    //type=[arrayNo objectAtIndex:row];
+    if ([self.arrayWithServerConnections count] != 0)
+    {
+    NSLog(@"%@", [[self.arrayWithServerConnections objectAtIndex:row]objectForKey:@"Name"]);
+    self.lableWithServerName.text = [[self.arrayWithServerConnections objectAtIndex:row]objectForKey:@"Name"];
+    }
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component;
@@ -132,6 +151,8 @@
     return [[self.arrayWithServerConnections objectAtIndex:row]objectForKey:@"Name"];
 }
 
+
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
@@ -140,6 +161,21 @@
     } else {
         return YES;
     }
+}
+
+- (IBAction)deleteServerAction:(id)sender {
+    
+    NSLog(@"%@", self.arrayWithServerConnections);
+    
+    if ([self.arrayWithServerConnections count] == 0)
+    {
+     NSLog(@"Nothing to delete!");   
+    }else
+    {
+    [self.plistController deleteServerWithName:[[self.arrayWithServerConnections objectAtIndex:[pickerView selectedRowInComponent:0]]objectForKey:@"Name"]];
+    [self reloadServerConnections];
+    }
+    
 }
 
 - (IBAction)addServer:(id)sender {
