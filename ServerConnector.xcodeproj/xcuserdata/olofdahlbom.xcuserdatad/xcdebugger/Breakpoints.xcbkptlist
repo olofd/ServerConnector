@@ -9,12 +9,12 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "ServerConnector/ViewController.m"
-         timestampString = "335019503.983104"
+         timestampString = "335042433.199329"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "93"
-         endingLineNumber = "93"
-         landmarkName = "-reloadServerConnections"
+         startingLineNumber = "192"
+         endingLineNumber = "192"
+         landmarkName = "-readActiveServerToLabel"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -22,13 +22,13 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "ServerConnector/AddServerViewController.m"
-         timestampString = "334963533.562713"
+         filePath = "ServerConnector/PlistServerController.m"
+         timestampString = "335040783.991506"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "47"
-         endingLineNumber = "47"
-         landmarkName = "-save:"
+         startingLineNumber = "256"
+         endingLineNumber = "256"
+         landmarkName = "-readActiveServer"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -36,41 +36,13 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "ServerConnector/AddServerViewController.m"
-         timestampString = "334963533.562713"
+         filePath = "ServerConnector/PlistServerController.m"
+         timestampString = "335029287.000213"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "53"
-         endingLineNumber = "53"
-         landmarkName = "-save:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "ServerConnector/AddServerViewController.m"
-         timestampString = "334964104.224985"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "99"
-         endingLineNumber = "99"
-         landmarkName = "-errorDialogWithErrors:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "ServerConnector/AddServerViewController.m"
-         timestampString = "334964104.224985"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "94"
-         endingLineNumber = "94"
-         landmarkName = "-errorDialogWithErrors:"
+         startingLineNumber = "109"
+         endingLineNumber = "109"
+         landmarkName = "-readPlistToArrayWithServerConnections"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -79,40 +51,26 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "ServerConnector/PlistServerController.m"
-         timestampString = "334975319.195172"
+         timestampString = "335040783.991506"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "130"
-         endingLineNumber = "130"
-         landmarkName = "-deleteServerWithName:"
+         startingLineNumber = "254"
+         endingLineNumber = "254"
+         landmarkName = "-readActiveServer"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "ServerConnector/PlistServerController.m"
-         timestampString = "334975319.195172"
+         timestampString = "335040783.991506"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "139"
-         endingLineNumber = "139"
-         landmarkName = "-deleteServerWithName:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "ServerConnector/ViewController.m"
-         timestampString = "335020576.084893"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "170"
-         endingLineNumber = "170"
-         landmarkName = "-deleteServerAction:"
+         startingLineNumber = "164"
+         endingLineNumber = "164"
+         landmarkName = "-deleteActiveServer"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

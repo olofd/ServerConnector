@@ -23,8 +23,11 @@
 - (NSDictionary *)checkServerSpellingInDictionary:(NSDictionary *)dictionary;
 - (NSString *)checkIfIPDNSHasHttpWithString:(NSString *)IPDNS;
 - (BOOL)checkServerConnectionWithDictionary:(NSDictionary *)dict;
+- (void)deleteActiveServer;
 
-- (BOOL)chooseServerWithName:(NSString *)serverName;
+
+- (void)chooseServerWithDict:(NSDictionary *)dict;
+- (NSDictionary *)readActiveServer;
 
 @property (nonatomic, retain) NSArray *arrayWithServers;
 

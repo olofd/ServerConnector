@@ -41,12 +41,12 @@
     NSError* error;
     NSData* result = [NSURLConnection sendSynchronousRequest:post returningResponse:&response error:&error];
       //  NSLog(@"%@", [[[NSString alloc] initWithData:result encoding:NSASCIIStringEncoding] autorelease]);
-    NSString *resultString = (@"%@", [[NSString alloc] initWithData:result encoding:NSASCIIStringEncoding]);
-
+    NSString *resultString = [[NSString alloc] initWithData:result encoding:NSASCIIStringEncoding];
+    
     
     if ([resultString boolValue] == true)
     {
-        NSLog(@"Inloggad!");
+        NSLog(@"Inloggad! %@", resultString);
      
     }
     
@@ -62,8 +62,9 @@
 
 - (BOOL)testServerWithDictionary:(NSDictionary *)dict
 {
+    NSString *testURL = [NSString stringWithFormat:@"%@:%@/%@/testServer.php?clientid=%@",[dict objectForKey:@"IP/DNS"], [dict objectForKey:@"Port"], [dict objectForKey:@"Root"], [dict objectForKey:@"ID"]];
     
-    NSString *testURL = [NSString stringWithFormat:@"%@:%@/%@/testServerSteenX.php?clientid=%@",[dict objectForKey:@"IP/DNS"], [dict objectForKey:@"Port"], [dict objectForKey:@"Root"], [dict objectForKey:@"ClientID"]];
+       // NSString *testURL = @"http://127.0.0.1:8888/ServerConnector/testServer.php?clientid=1";
     
     NSMutableURLRequest* post = [NSURLRequest requestWithURL:[NSURL URLWithString:[testURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] ]];
     
@@ -71,8 +72,8 @@
     NSURLResponse* response;
     NSError* error;
     NSData* result = [NSURLConnection sendSynchronousRequest:post returningResponse:&response error:&error];
-    //  NSLog(@"%@", [[[NSString alloc] initWithData:result encoding:NSASCIIStringEncoding] autorelease]);
-    NSString *resultString = (@"%@", [[NSString alloc] initWithData:result encoding:NSASCIIStringEncoding]);
+    //  NSLog(@"%@", [[NSString alloc] initWithData:result encoding:NSASCIIStringEncoding]);
+    NSString *resultString = [[NSString alloc] initWithData:result encoding:NSASCIIStringEncoding];
     
     
     if ([resultString boolValue] == true)

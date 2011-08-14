@@ -46,9 +46,6 @@
         [a setReturnKeyType:UIReturnKeyDone];
     }
     
-
-    
-    
 }
 
 -(BOOL) textFieldShouldReturn:(UITextField*) textField {

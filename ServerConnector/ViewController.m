@@ -19,6 +19,7 @@
 
 
 @synthesize arrayWithServerConnections;
+@synthesize labelWithActiveServerName;
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -31,33 +32,15 @@
     {
         DetailsViewController *detailsViewController = [segue destinationViewController];
        // detailsViewController.delegate = self;
+        
+        if ([self.arrayWithServerConnections count] > 0)
+        {
         detailsViewController.dictWithServerDetails = [arrayWithServerConnections objectAtIndex:[pickerView selectedRowInComponent:0]];
-        NSLog(@"HEJBAJS");   
+        }
     }
 
 }
 
-- (void)dissmiss;
-{
-    [self dismissModalViewControllerAnimated:YES];  
-}
-
-- (void)didAddServerNowDissmissWithDict:(NSDictionary *)dict;
-{
-
-    
-    [plistController writePlistWithDictionaryWithServerConnections:dict];
-    [self dismissModalViewControllerAnimated:YES];
-    [self reloadServerConnections];
-}
-
-
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Release any cached data, images, etc that aren't in use.
-}
 
 #pragma mark - View lifecycle
 
@@ -71,18 +54,12 @@
     plistController = [[PlistServerController alloc] init];
     
     [self reloadServerConnections];
-    NSLog(@"%@", arrayWithServerConnections);
-    
-    
-    if ([self.arrayWithServerConnections count] == 0)
-    {
-        NSLog(@"Tom");
-    }
-    //[self pickerView:pickerView didSelectRow:0 inComponent:0];
-
-    
+    [self readActiveServerToLabel];
+        
 }
-
+- (IBAction)reloadAction:(id)sender {
+    [self reloadServerConnections];
+}
 - (void)reloadServerConnections
 {
     if (self.arrayWithServerConnections == nil)
@@ -94,13 +71,162 @@
     }
     
     [pickerView reloadComponent:0];
-
+    if ([self.arrayWithServerConnections count] != 0)
+    {
+        [self pickerView:pickerView didSelectRow:0 inComponent:0];    
+    }
 }
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView;
+{
+    return 1;
+    
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    if ([self.arrayWithServerConnections count] != 0)
+    {
+    self.lableWithServerName.text = [[self.arrayWithServerConnections objectAtIndex:row]objectForKey:@"Name"];
+    }
+}
+
+
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component;
+{
+    return [self.arrayWithServerConnections count];
+}
+
+- (NSString *)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    
+    return [[self.arrayWithServerConnections objectAtIndex:row]objectForKey:@"Name"];
+}
+
+
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    // Return YES for supported orientations
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    } else {
+        return YES;
+    }
+}
+
+- (IBAction)deleteServerAction:(id)sender {
+        
+    if ([self.arrayWithServerConnections count] == 0)
+    {
+[self showMessageBoxWithString:@"Nothing to delete!"];
+ 
+ }else
+    {
+
+        
+    
+    [self.plistController deleteServerWithName:[[self.arrayWithServerConnections objectAtIndex:[pickerView selectedRowInComponent:0]]objectForKey:@"Name"]];
+
+
+    [self reloadServerConnections];
+    [pickerView selectRow:[pickerView selectedRowInComponent:0] - 1 inComponent:0 animated:YES];
+    }
+    
+    [self readActiveServerToLabel];
+    
+}
+
+- (IBAction)testServerAction:(id)sender {
+    
+    if ([self.arrayWithServerConnections count] > 0)
+    {
+     
+    if ([self testServerMethod])
+    {
+        [self showMessageBoxWithString:@"Server is working!"];
+    }else
+    {
+        [self showMessageBoxWithString:@"Server is NOT working!"];
+
+    }
+    }
+    
+}
+
+-(BOOL)testServerMethod
+{
+    bool serverStatus = [plistController checkServerConnectionWithDictionary:[self.arrayWithServerConnections objectAtIndex:[pickerView selectedRowInComponent:0]]];
+    
+    if (serverStatus == YES)
+    {
+        return YES;
+    }else
+    {
+        return NO;
+        
+    }
+}
+
+- (IBAction)chooseServerAction:(id)sender {
+    
+    if ([self.arrayWithServerConnections count] > 0)
+    {
+    if([self testServerMethod])
+    {
+        [plistController chooseServerWithDict:[self.arrayWithServerConnections objectAtIndex:[pickerView selectedRowInComponent:0]]];
+        [self readActiveServerToLabel];
+    }else
+    {
+        [self showMessageBoxWithString:@"This server is not responding and can't be choosen!"];
+    }
+    }
+}
+
+- (void)readActiveServerToLabel
+{
+    NSString *nameOfServerThatIsActive;
+    
+    nameOfServerThatIsActive = [NSString stringWithFormat:@"Active Server: %@", [[plistController readActiveServer] objectForKey:@"Name"]];
+
+    if (nameOfServerThatIsActive != nil)
+    {
+        self.labelWithActiveServerName.text = nameOfServerThatIsActive;
+    }else
+    {
+        self.labelWithActiveServerName.text = @"No Active Server!";
+    }
+}
+
+- (void)dissmiss;
+{
+    [self dismissModalViewControllerAnimated:YES];  
+}
+
+- (void)didAddServerNowDissmissWithDict:(NSDictionary *)dict;
+{
+    
+    
+    [plistController writePlistWithDictionaryWithServerConnections:dict];
+    [self dismissModalViewControllerAnimated:YES];
+    [self reloadServerConnections];
+}
+
+- (void)showMessageBoxWithString:(NSString *)stringToShow
+{
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:stringToShow
+                                                             delegate:nil cancelButtonTitle:nil destructiveButtonTitle:@"OK" otherButtonTitles:nil];
+	actionSheet.actionSheetStyle = UIActionSheetStyleDefault;
+	[actionSheet showInView:self.view];	
+}
+
 
 - (void)viewDidUnload
 {
     [self setPickerView:nil];
     [self setLableWithServerName:nil];
+    labelWithActiveServerName = nil;
+    [self setLabelWithActiveServerName:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -126,59 +252,9 @@
 	[super viewDidDisappear:animated];
 }
 
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView;
+- (void)didReceiveMemoryWarning
 {
-    return 1;
-    
-}
-
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
-{
-    if ([self.arrayWithServerConnections count] != 0)
-    {
-    NSLog(@"%@", [[self.arrayWithServerConnections objectAtIndex:row]objectForKey:@"Name"]);
-    self.lableWithServerName.text = [[self.arrayWithServerConnections objectAtIndex:row]objectForKey:@"Name"];
-    }
-}
-
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component;
-{
-    return [self.arrayWithServerConnections count];
-}
-
-- (NSString *)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    
-    return [[self.arrayWithServerConnections objectAtIndex:row]objectForKey:@"Name"];
-}
-
-
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-    } else {
-        return YES;
-    }
-}
-
-- (IBAction)deleteServerAction:(id)sender {
-    
-    NSLog(@"%@", self.arrayWithServerConnections);
-    
-    if ([self.arrayWithServerConnections count] == 0)
-    {
-     NSLog(@"Nothing to delete!");   
-    }else
-    {
-    [self.plistController deleteServerWithName:[[self.arrayWithServerConnections objectAtIndex:[pickerView selectedRowInComponent:0]]objectForKey:@"Name"]];
-    [self reloadServerConnections];
-    }
-    
-}
-
-- (IBAction)addServer:(id)sender {
-    NSLog(@"Hej");
+    [super didReceiveMemoryWarning];
+    // Release any cached data, images, etc that aren't in use.
 }
 @end

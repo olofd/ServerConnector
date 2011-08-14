@@ -134,11 +134,19 @@ else
         }
     }
     
+    
     if (didFindName == YES)
     {
-    [arrayWithDeleter removeObjectAtIndex:a];
+
+    if ([[[arrayWithDeleter objectAtIndex:a] objectForKey:@"Name"]isEqualToString:
+          [[self readActiveServer]objectForKey:@"Name"]])
+         {
+             [self deleteActiveServer];
+         }
+         
+            [arrayWithDeleter removeObjectAtIndex:a];
     }
-    
+  
     
     NSLog(@"%@", arrayWithDeleter);
     
@@ -147,6 +155,15 @@ else
     
 }
 
+- (void)deleteActiveServer
+{
+    NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *plistPath = [rootPath stringByAppendingPathComponent:@"ServerConnectorActiveServer.plist"];   
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:plistPath]) {
+		[[NSFileManager defaultManager] removeItemAtPath:plistPath error:NULL];
+	}
+}
 
 - (NSDictionary *)checkServerSpellingInDictionary:(NSDictionary *)dictionary {
     
@@ -205,49 +222,45 @@ else
     
 }
 
-- (BOOL)chooseServerWithName:(NSString *)serverName
+
+
+- (void)chooseServerWithDict:(NSDictionary *)dict
 {
-    BOOL didFindServer = NO;
-    
-    for (NSDictionary *dict in self.arrayWithServers)
-    {
-        if([[dict objectForKey:@"Servername"] isEqualToString:serverName])
-        {
-            
+
             NSString *error;
             NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-            NSString *plistPath = [rootPath stringByAppendingPathComponent:@"ActiveConnection.plist"];   
+            NSString *plistPath = [rootPath stringByAppendingPathComponent:@"ServerConnectorActiveServer.plist"];   
             
             NSData *plistData = [NSPropertyListSerialization dataFromPropertyList:dict
                                                                            format:NSPropertyListXMLFormat_v1_0
                                                                  errorDescription:&error];
             if(plistData) {
                 [plistData writeToFile:plistPath atomically:YES];
+                
             }
             else {
                 NSLog(@"%@", error);
                 
             }
             
-            didFindServer = YES;
-            
-        }
+}
 
-
-    }
+- (NSDictionary *)readActiveServer
+{
     
+    NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *plistPath = [rootPath stringByAppendingPathComponent:@"ServerConnectorActiveServer.plist"];
     
+    NSDictionary *dictWithActiveServer = [NSDictionary dictionaryWithContentsOfFile:plistPath];
     
-    if (didFindServer == YES)
+    if (dictWithActiveServer != NULL)
     {
-        return YES;
-    
-    }else 
-    {
-        return NO;
-    }
         
-    
+        return dictWithActiveServer;
+    }else
+    {
+        return nil;
+    }
 }
 
 @end
