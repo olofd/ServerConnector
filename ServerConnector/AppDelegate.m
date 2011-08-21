@@ -12,6 +12,10 @@
 
 @synthesize window = _window;
 
+-(void)applicationDidFinishLaunching:(UIApplication *)application
+{
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     /*

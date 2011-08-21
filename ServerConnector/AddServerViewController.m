@@ -112,7 +112,7 @@
 {
    
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                   reuseIdentifier:@"REUSe"];
+                                   reuseIdentifier:@"Reuse"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     [cell.contentView addSubview:[arrayWithFields objectAtIndex:indexPath.row]];

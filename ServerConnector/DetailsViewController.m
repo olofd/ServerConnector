@@ -55,31 +55,31 @@
     
     if (indexPath.row == 0)
     {
-        NSString *stringWithName = [dictWithServerDetails objectForKey:@"Name"];
+        NSString *stringWithName = [self.dictWithServerDetails objectForKey:@"Name"];
         [cell.textLabel setText:stringWithName];
         [cell.detailTextLabel setText:@"Name"];
     }
     if (indexPath.row == 1)
     {
-        NSString *stringWithName = [dictWithServerDetails objectForKey:@"IP/DNS"];
+        NSString *stringWithName = [self.dictWithServerDetails objectForKey:@"IP/DNS"];
         [cell.textLabel setText:stringWithName];
                 [cell.detailTextLabel setText:@"IP/DNS"];
     }
     if (indexPath.row == 2)
     {
-        NSString *stringWithName = [dictWithServerDetails objectForKey:@"Port"];
+        NSString *stringWithName = [self.dictWithServerDetails objectForKey:@"Port"];
         [cell.textLabel setText:stringWithName];
                 [cell.detailTextLabel setText:@"Port"];
     }
     if (indexPath.row == 3)
     {
-        NSString *stringWithName = [dictWithServerDetails objectForKey:@"Root"];
+        NSString *stringWithName = [self.dictWithServerDetails objectForKey:@"Root"];
         [cell.textLabel setText:stringWithName];
                 [cell.detailTextLabel setText:@"Root"];
     }
     if (indexPath.row == 4)
     {
-        NSString *stringWithName = [dictWithServerDetails objectForKey:@"ID"];
+        NSString *stringWithName = [self.dictWithServerDetails objectForKey:@"ID"];
         [cell.textLabel setText:stringWithName];
                 [cell.detailTextLabel setText:@"ID"];
     }

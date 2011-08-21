@@ -23,6 +23,8 @@
 @synthesize arrayWithServerConnections;
 @synthesize labelWithActiveServerName;
 
+@synthesize delegate;
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([[segue identifier] isEqualToString:@"addServer"])
@@ -33,14 +35,14 @@
     if([[segue identifier] isEqualToString:@"showServerDetails"])
     {
         DetailsViewController *detailsViewController = [segue destinationViewController];
-       // detailsViewController.delegate = self;
+        // detailsViewController.delegate = self;
         
         if ([self.arrayWithServerConnections count] > 0)
         {
-        detailsViewController.dictWithServerDetails = [arrayWithServerConnections objectAtIndex:[pickerView selectedRowInComponent:0]];
+            detailsViewController.dictWithServerDetails = [arrayWithServerConnections objectAtIndex:[pickerView selectedRowInComponent:0]];
         }
     }
-
+    
 }
 
 
@@ -52,15 +54,15 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     [activityView setHidden:YES];
-
+    
     plistController = [[PlistServerController alloc] init];
     
     [self reloadServerConnections];
     [self readActiveServerToLabel];
-        
+    
 }
-- (IBAction)reloadAction:(id)sender {
-    [self reloadServerConnections];
+- (IBAction)exitServerConnector:(id)sender {
+    [delegate serverConnectorWillExit];
 }
 - (void)reloadServerConnections
 {
@@ -89,7 +91,7 @@
 {
     if ([self.arrayWithServerConnections count] != 0)
     {
-    self.lableWithServerName.text = [[self.arrayWithServerConnections objectAtIndex:row]objectForKey:@"Name"];
+        self.lableWithServerName.text = [[self.arrayWithServerConnections objectAtIndex:row]objectForKey:@"Name"];
     }
 }
 
@@ -118,21 +120,21 @@
 }
 
 - (IBAction)deleteServerAction:(id)sender {
-        
+    
     if ([self.arrayWithServerConnections count] == 0)
     {
-[self showMessageBoxWithString:@"Nothing to delete!"];
- 
- }else
-    {
-
+        [self showMessageBoxWithString:@"Nothing to delete!"];
         
-    
-    [self.plistController deleteServerWithName:[[self.arrayWithServerConnections objectAtIndex:[pickerView selectedRowInComponent:0]]objectForKey:@"Name"]];
-
-
-    [self reloadServerConnections];
-    [pickerView selectRow:[pickerView selectedRowInComponent:0] - 1 inComponent:0 animated:YES];
+    }else
+    {
+        
+        
+        
+        [self.plistController deleteServerWithName:[[self.arrayWithServerConnections objectAtIndex:[pickerView selectedRowInComponent:0]]objectForKey:@"Name"]];
+        
+        
+        [self reloadServerConnections];
+        [pickerView selectRow:[pickerView selectedRowInComponent:0] - 1 inComponent:0 animated:YES];
     }
     
     [self readActiveServerToLabel];
@@ -146,19 +148,19 @@
     [self.activityView startAnimating];
     dispatch_queue_t testServer = dispatch_queue_create("Test-Server-Thread", NULL);
     dispatch_async(testServer, ^{
-    
-    if ([self.arrayWithServerConnections count] > 0)
-    {
-     
-    if ([self testServerMethod])
-    {
-        [self showMessageBoxWithString:@"Server is working!"];
-    }else
-    {
-        [self showMessageBoxWithString:@"Server is NOT working!"];
-
-    }
-    }
+        
+        if ([self.arrayWithServerConnections count] > 0)
+        {
+            
+            if ([self testServerMethod])
+            {
+                [self showMessageBoxWithString:@"Server is working!"];
+            }else
+            {
+                [self showMessageBoxWithString:@"Server is NOT working!"];
+                
+            }
+        }
         
         [self.imageView setHidden:NO];
         [self.activityView setHidden:YES];
@@ -190,19 +192,19 @@
     
     dispatch_queue_t chooseServer = dispatch_queue_create("Choose Server Thread", NULL);
     dispatch_async(chooseServer, ^{
-  
-    
-    if ([self.arrayWithServerConnections count] > 0)
-    {
-    if([self testServerMethod])
-    {
-        [plistController chooseServerWithDict:[self.arrayWithServerConnections objectAtIndex:[pickerView selectedRowInComponent:0]]];
-        [self readActiveServerToLabel];
-    }else
-    {
-        [self showMessageBoxWithString:@"This server is not responding and can't be choosen!"];
-    }
-    }
+        
+        
+        if ([self.arrayWithServerConnections count] > 0)
+        {
+            if([self testServerMethod])
+            {
+                [plistController chooseServerWithDict:[self.arrayWithServerConnections objectAtIndex:[pickerView selectedRowInComponent:0]]];
+                [self readActiveServerToLabel];
+            }else
+            {
+                [self showMessageBoxWithString:@"This server is not responding and can't be choosen!"];
+            }
+        }
         [self.imageView setHidden:NO];
         [self.activityView setHidden:YES];
         [self.activityView stopAnimating];
@@ -217,7 +219,7 @@
     NSString *nameOfServerThatIsActive;
     
     nameOfServerThatIsActive = [NSString stringWithFormat:@"Active Server: %@", [[plistController readActiveServer] objectForKey:@"Name"]];
-
+    
     if (nameOfServerThatIsActive != nil)
     {
         self.labelWithActiveServerName.text = nameOfServerThatIsActive;

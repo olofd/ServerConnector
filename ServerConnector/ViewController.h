@@ -10,6 +10,11 @@
 #import "AddServerViewController.h"
 #import "PlistServerController.h"
 
+@protocol ServerConnectorViewControllerDelegate <NSObject>
+
+-(void)serverConnectorWillExit;
+
+@end
 @interface ViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate, AddServerDelegate>
 {
     
@@ -19,10 +24,11 @@
     
     PlistServerController *plistController;
     
-
+    
     UILabel *lableWithServerName;
     UIImageView *imageView;
     UIActivityIndicatorView *activityView;
+    
 }
 - (IBAction)deleteServerAction:(id)sender;
 - (IBAction)testServerAction:(id)sender;
@@ -33,10 +39,12 @@
 - (NSString *)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component;
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component;
 
-- (IBAction)reloadAction:(id)sender;
+- (IBAction)exitServerConnector:(id)sender;
 - (void)reloadServerConnections;
 
 //Protocol actions:
+
+
 - (void)dissmiss;
 - (void)didAddServerNowDissmissWithDict:(NSDictionary *)dict;
 
@@ -44,6 +52,8 @@
 
 
 //Propertys
+@property (weak, nonatomic) id<ServerConnectorViewControllerDelegate> delegate;
+
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityView;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) IBOutlet UILabel *lableWithServerName;
