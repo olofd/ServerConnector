@@ -39,7 +39,7 @@
         
         if ([self.arrayWithServerConnections count] > 0)
         {
-            detailsViewController.dictWithServerDetails = [arrayWithServerConnections objectAtIndex:[pickerView selectedRowInComponent:0]];
+            detailsViewController.dictWithServerDetails = [self.arrayWithServerConnections objectAtIndex:[pickerView selectedRowInComponent:0]];
         }
     }
     
@@ -52,14 +52,20 @@
 {
     
     [super viewDidLoad];
+    [self startServerConector];
 	// Do any additional setup after loading the view, typically from a nib.
+
+    
+}
+
+- (void)startServerConector
+{
     [activityView setHidden:YES];
     
     plistController = [[PlistServerController alloc] init];
     
     [self reloadServerConnections];
-    [self readActiveServerToLabel];
-    
+    [self readActiveServerToLabel]; 
 }
 - (IBAction)exitServerConnector:(id)sender {
     [delegate serverConnectorWillExit];
@@ -80,6 +86,10 @@
         [self pickerView:pickerView didSelectRow:0 inComponent:0];    
     }
 }
+
+
+
+
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView;
 {
@@ -214,11 +224,21 @@
     dispatch_release(chooseServer);
 }
 
+- (NSString *)activeServer 
+{
+    
+    NSString *activeServer ;
+    activeServer = [[plistController readActiveServer] objectForKey:@"Name"];
+    
+    return activeServer;
+}
+
+
 - (void)readActiveServerToLabel
 {
     NSString *nameOfServerThatIsActive;
     
-    nameOfServerThatIsActive = [NSString stringWithFormat:@"Active Server: %@", [[plistController readActiveServer] objectForKey:@"Name"]];
+    nameOfServerThatIsActive = [NSString stringWithFormat:@"Active Server: %@", [self activeServer]];
     
     if (nameOfServerThatIsActive != nil)
     {

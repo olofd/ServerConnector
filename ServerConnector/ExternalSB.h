@@ -12,11 +12,18 @@
 @interface ExternalSB : UIViewController<ServerConnectorDelegate>
 {
     
+    UILabel *activeServerLabel;
 }
 
 
+- (void)updateLabel;
 - (IBAction)startSB:(id)sender;
--(void)serverConnectorWillExit;
 
+//Protocol:
+-(void)serverConnectorWillExit;
+-(void)showUIActionSheetWithString:(NSString *)stringToShow;
+
+
+@property (strong, nonatomic) IBOutlet UILabel *activeServerLabel;
 @property (strong, nonatomic) ServerConnector *SC;
 @end

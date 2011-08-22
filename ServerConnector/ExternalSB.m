@@ -11,6 +11,7 @@
 
 @implementation ExternalSB
 
+@synthesize activeServerLabel;
 @synthesize SC;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -39,16 +40,48 @@
 }
 */
 
-/*
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    SC = [[ServerConnector alloc] initAndCreateUIForDevice:@"iPhone"];
+    SC.delegate = self;
+    
+    NSLog(@"%@", [self.SC requestActiveServer]);
+    [self updateLabel];
+    
+    
+    NSLog(@"%d",[self.SC testServerWithName:@"Local"]);
+
+    
+    
+    NSArray *keys = [NSArray arrayWithObjects:@"Name", @"IP/DNS", @"Port", @"Root", @"ID", nil];
+    NSArray *value = [NSArray arrayWithObjects:@"NicklasServer", @"http://127.0.0.1", @"9888", @"ServerConnector", @"1", nil];
+    NSDictionary *dict = [NSDictionary dictionaryWithObjects:value forKeys:keys];
+//    
+    [self.SC setActiveServerWithDict:dict DisplayResultInUI:NO]; 
+   // [self showUIActionSheetWithString:@"Hej"];
+    //Updating Label
+
 }
-*/
+
+-(void)showUIActionSheetWithString:(NSString *)stringToShow {
+    
+    UIActionSheet *action = [[UIActionSheet alloc] init];
+    action = [self.SC constructUIActionSheetWithString:stringToShow];
+    [action showInView:self.view];
+}
+
+- (void)updateLabel
+{
+    self.activeServerLabel.text = [NSString stringWithFormat:@"Active Server: %@", [self.SC requestActiveServer]];
+}
 
 - (void)viewDidUnload
 {
+    [self setActiveServerLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -62,8 +95,7 @@
 
 - (IBAction)startSB:(id)sender {
     
-    SC = [[ServerConnector alloc] initAndCreateUIForDevice:@"iPhone"];
-    SC.delegate = self;
+
     
     [self presentModalViewController:SC.navController animated:YES];
     
@@ -72,5 +104,7 @@
 -(void)serverConnectorWillExit;
 {
     [self dismissModalViewControllerAnimated:YES];
+    [self updateLabel];
+
 }
 @end

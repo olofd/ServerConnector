@@ -34,7 +34,9 @@
 - (IBAction)testServerAction:(id)sender;
 - (IBAction)chooseServerAction:(id)sender;
 
+- (void)startServerConector;
 -(BOOL)testServerMethod;
+- (NSString *)activeServer; 
 - (void)readActiveServerToLabel;
 - (NSString *)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component;
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component;
