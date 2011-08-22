@@ -148,7 +148,7 @@
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:stringToShow
                                                              delegate:nil cancelButtonTitle:nil destructiveButtonTitle:@"OK" otherButtonTitles:nil];
 	actionSheet.actionSheetStyle = UIActionSheetStyleDefault;
-    
+    NSLog(@"Hello");
     return actionSheet;
 
 }
