@@ -12,7 +12,7 @@
 #pragma mark Initialization
 
 @implementation ServerConnector
-@synthesize navController, rootController;
+@synthesize navController, rootController, dataParser;
 
 @synthesize delegate;
 
@@ -49,7 +49,7 @@
 }
 
 #pragma -
-#pragma mark ServerConnectorApi
+#pragma mark ServerConnectorControllerAPI
 
 - (NSString *)requestActiveServer {    
     return [[self.rootController.plistController readActiveServer]valueForKey:@"Name"];
@@ -153,6 +153,42 @@
 
 }
 
+#pragma -
+#pragma mark ServerConnectorActions
+
+- (void)loginWithUserName:(NSString *)userName andPassword:(NSString *)password
+{
+    dispatch_queue_t loginThread = dispatch_queue_create("Login-thread", NULL);
+    dispatch_async(loginThread, ^{
+    
+    dataParser = [[DataParser alloc] init];
+    
+    if([dataParser loginOnServer:[self requestActiveServerData] withUsername:userName andPassword:password])
+    {
+        [self didLogInWithCredentials:userName andPassword:password];
+        
+ 
+    }else
+    {
+        [self.delegate showUIActionSheetWithString:@"Login Failed!"];
+        [self errorWhileLoadingDataWithInfo:@"Login Failed!"];
+    }
+    
+    });
+    
+    dispatch_release(loginThread);
+}
+
+- (void)didLogInWithCredentials:(NSString *)userName andPassword:(NSString *)password
+{
+    
+    NSLog(@"Did Login with username %@", userName);
+    
+}
+- (void)errorWhileLoadingDataWithInfo:(NSString *)info
+{
+    NSLog(@"%@", info);
+}
 
 
 

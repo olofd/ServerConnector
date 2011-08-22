@@ -8,16 +8,22 @@
 
 #import <Foundation/Foundation.h>
 #import "SBJsonParser.h"
+#import "PlistServerController.h"
 
 @interface DataParser : NSObject{
 
     SBJsonParser *parser;
+    PlistServerController *plistController;
 }
 
 @property (nonatomic, retain) SBJsonParser *parser;
 
 
--(NSArray *)loginWithUsername:(NSString *)user AndPassword:(NSString *)password;
+
+-(BOOL)loginOnServer:(NSDictionary *)dict withUsername:(NSString *)userName andPassword:(NSString *)password;
+
 - (BOOL)testServerWithDictionary:(NSDictionary *)dict;
+
+@property (strong, nonatomic) PlistServerController *plistController;
 
 @end

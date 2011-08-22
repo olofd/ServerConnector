@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ViewController.h"
+#import "DataParser.h"
 
 @protocol ServerConnectorDelegate <NSObject>
 
@@ -24,6 +25,7 @@
     
     @protected
     ViewController *rootController;
+    DataParser *dataParser;
 }
 
 - (id)initAndCreateUIForDevice:(NSString *)deviceName;
@@ -37,6 +39,7 @@
 @property (strong, nonatomic) ViewController *rootController;
 
 @property (strong, nonatomic) UINavigationController *navController;
+@property (strong, nonatomic) DataParser *dataParser;
 
 
 #pragma -
@@ -50,5 +53,10 @@
 - (BOOL)testServerWithName:(NSString *)name;
 - (UIActionSheet *)constructUIActionSheetWithString:(NSString *)stringToShow;
 
+#pragma -
+#pragma mark ServerConnectorActions
+- (void)loginWithUserName:(NSString *)userName andPassword:(NSString *)password;
+- (void)didLogInWithCredentials:(NSString *)userName andPassword:(NSString *)password;
+- (void)errorWhileLoadingDataWithInfo:(NSString *)info;
 
 @end

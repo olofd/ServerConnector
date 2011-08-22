@@ -11,6 +11,9 @@
 
 @implementation ExternalSB
 
+
+@synthesize userNameField;
+@synthesize passwordField;
 @synthesize activeServerLabel;
 @synthesize SC;
 
@@ -65,6 +68,17 @@
    // [self showUIActionSheetWithString:@"Hej"];
     //Updating Label
 
+    [self.userNameField setDelegate:self];
+    [self.userNameField setReturnKeyType:UIReturnKeyDone];
+    [self.passwordField setDelegate:self];
+    [self.passwordField setReturnKeyType:UIReturnKeyDone];
+}
+-(BOOL) textFieldShouldReturn:(UITextField*) textField {
+
+    [userNameField resignFirstResponder];
+    [passwordField resignFirstResponder];
+
+    return YES;
 }
 
 -(void)showUIActionSheetWithString:(NSString *)stringToShow {
@@ -82,6 +96,9 @@
 - (void)viewDidUnload
 {
     [self setActiveServerLabel:nil];
+
+    [self setUserNameField:nil];
+    [self setPasswordField:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -99,6 +116,11 @@
     
     [self presentModalViewController:SC.navController animated:YES];
     
+}
+
+- (IBAction)loginAction:(id)sender {
+    
+    [self.SC loginWithUserName:self.userNameField.text andPassword:self.passwordField.text];
 }
 
 -(void)serverConnectorWillExit;

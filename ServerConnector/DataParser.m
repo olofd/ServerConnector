@@ -11,7 +11,7 @@
 
 
 @implementation DataParser
-@synthesize parser;
+@synthesize parser, plistController;
 
 - (id)init
 {
@@ -23,16 +23,10 @@
     return self;
 }
 
--(NSArray *)loginWithUsername:(NSString *)user AndPassword:(NSString *)password
+-(BOOL)loginOnServer:(NSDictionary *)dict withUsername:(NSString *)userName andPassword:(NSString *)password
 {
-    //Testar Server:
- //   [self testServerWithClientId:@"SteenX"];
  
-    NSString *serverUrl = [NSString stringWithFormat:@"http://127.0.0.1"];
-    NSString *port = [NSString stringWithFormat:@"8888"];
-    NSString *rootFolder = [NSString stringWithFormat:@"SteenX"];
-
-    NSString *URL = [NSString stringWithFormat:@"%@:%@/%@/login.php?username=%@&password=%@",serverUrl, port, rootFolder, user, password];
+    NSString *URL = [NSString stringWithFormat:@"%@:%@/%@/login.php?username=%@&password=%@",[dict objectForKey:@"IP/DNS"], [dict objectForKey:@"Port"], [dict objectForKey:@"Root"], userName, password];
     
     NSMutableURLRequest* post = [NSURLRequest requestWithURL:[NSURL URLWithString:[URL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] ]];
     
@@ -46,14 +40,13 @@
     
     if ([resultString boolValue] == true)
     {
-        NSLog(@"Inloggad! %@", resultString);
-     
+        return YES;     
     }
     
     else
     {
-        NSLog(@"Inloggning misslyckades!");
-        return NULL;
+
+        return NO;
     }
     
     
