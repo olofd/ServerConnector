@@ -173,6 +173,44 @@
     return YES;
 }
 
+// Invoked when interval, counter, or numDigits field is edited to slide up
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+   // [self performSelector:@selector(shiftViewForKeyboard:) withObject:nil afterDelay:0];
+    if ([textField.placeholder isEqualToString:@"ID"])
+    {
+        [self shiftViewForKeyboard:@"UP"];
+    }
+}
+
+// Invoked when interval, counter, or numDigits field is done editing to slide back down
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if ([textField.placeholder isEqualToString:@"ID"])
+    {
+        [self shiftViewForKeyboard:@"DOWN"];
+    }
+
+}
+- (void)shiftViewForKeyboard:(NSString *)direction
+{
+    const int movementDistance = 40;
+    const float movementDuration = 0.3f;
+    int movement;
+    
+    if ([direction isEqualToString:@"UP"])
+         {
+             movement = (-movementDistance);
+         }else
+         {
+             movement = movementDistance;
+         }
+    
+    [UIView beginAnimations:@"Shift" context:nil];
+    [UIView setAnimationDuration:movementDuration];
+    self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+    [UIView commitAnimations];
+}
 
 
 

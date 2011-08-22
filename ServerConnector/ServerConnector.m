@@ -12,7 +12,7 @@
 #pragma mark Initialization
 
 @implementation ServerConnector
-@synthesize navController, rootController, dataParser;
+@synthesize navController, rootController, dataParser, model;
 
 @synthesize delegate;
 
@@ -22,6 +22,9 @@
     {
         NSMutableString *SBName = [NSMutableString stringWithString:@"ServerConnector_"];
         [SBName appendString:deviceName];
+        
+        self.model = [[ServerConnectorModel alloc] init];
+        
         self.navController = [self loadUIWithStoryBoardName:SBName];
         self.rootController =[[self.navController viewControllers] objectAtIndex:0];
         self.rootController.delegate = self;
@@ -148,7 +151,6 @@
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:stringToShow
                                                              delegate:nil cancelButtonTitle:nil destructiveButtonTitle:@"OK" otherButtonTitles:nil];
 	actionSheet.actionSheetStyle = UIActionSheetStyleDefault;
-    NSLog(@"Hello");
     return actionSheet;
 
 }
@@ -182,7 +184,8 @@
 - (void)didLogInWithCredentials:(NSString *)userName andPassword:(NSString *)password
 {
     
-    NSLog(@"Did Login with username %@", userName);
+    
+    NSLog(@"Successfull Login with username %@", userName);
     
 }
 - (void)errorWhileLoadingDataWithInfo:(NSString *)info

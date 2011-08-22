@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C045A701402C4920056E4EC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C045A6F1402C4910056E4EC /* CoreGraphics.framework */; };
+		8C045A751402CF840056E4EC /* delete_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C045A721402CF840056E4EC /* delete_button.png */; };
+		8C045A761402CF840056E4EC /* test_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C045A731402CF840056E4EC /* test_button.png */; };
+		8C045A771402CF840056E4EC /* choose_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C045A741402CF840056E4EC /* choose_button.png */; };
 		8C2A288914018EDA003D1CF1 /* ServerConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A288814018EDA003D1CF1 /* ServerConnector.m */; };
 		8C2A288D14019034003D1CF1 /* ServerConnectorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A288C14019034003D1CF1 /* ServerConnectorModel.m */; };
 		8C97521713F7266E0025EA43 /* server.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C97521613F7266E0025EA43 /* server.png */; };
@@ -54,6 +58,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8C045A6F1402C4910056E4EC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		8C045A721402CF840056E4EC /* delete_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete_button.png; sourceTree = "<group>"; };
+		8C045A731402CF840056E4EC /* test_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test_button.png; sourceTree = "<group>"; };
+		8C045A741402CF840056E4EC /* choose_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = choose_button.png; sourceTree = "<group>"; };
 		8C2A288714018EDA003D1CF1 /* ServerConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerConnector.h; sourceTree = "<group>"; };
 		8C2A288814018EDA003D1CF1 /* ServerConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerConnector.m; sourceTree = "<group>"; };
 		8C2A288B14019034003D1CF1 /* ServerConnectorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerConnectorModel.h; sourceTree = "<group>"; };
@@ -121,6 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C045A701402C4920056E4EC /* CoreGraphics.framework in Frameworks */,
 				8CE4F47613F1C0230004B776 /* UIKit.framework in Frameworks */,
 				8CE4F47813F1C0230004B776 /* Foundation.framework in Frameworks */,
 			);
@@ -186,6 +195,9 @@
 		8C97521213F7263B0025EA43 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				8C045A721402CF840056E4EC /* delete_button.png */,
+				8C045A731402CF840056E4EC /* test_button.png */,
+				8C045A741402CF840056E4EC /* choose_button.png */,
 				8C97521613F7266E0025EA43 /* server.png */,
 			);
 			name = images;
@@ -246,6 +258,7 @@
 		8CE4F47413F1C0230004B776 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8C045A6F1402C4910056E4EC /* CoreGraphics.framework */,
 				8CE4F47513F1C0230004B776 /* UIKit.framework */,
 				8CE4F47713F1C0230004B776 /* Foundation.framework */,
 				8CE4F49413F1C0240004B776 /* SenTestingKit.framework */,
@@ -377,6 +390,9 @@
 				8CE4F48A13F1C0230004B776 /* ServerConnector_iPad.storyboard in Resources */,
 				8C97521713F7266E0025EA43 /* server.png in Resources */,
 				8CB09BE21401B87D0060551A /* ExternalSB_iPhone.storyboard in Resources */,
+				8C045A751402CF840056E4EC /* delete_button.png in Resources */,
+				8C045A761402CF840056E4EC /* test_button.png in Resources */,
+				8C045A771402CF840056E4EC /* choose_button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

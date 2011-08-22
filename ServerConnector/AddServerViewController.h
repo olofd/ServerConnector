@@ -30,7 +30,7 @@
 
 
 }
-
+- (void)shiftViewForKeyboard:(NSString *)direction;
 - (void)errorDialogWithErrors:(NSMutableArray *)arrayWithErrors;
 
 - (IBAction)cancel:(id)sender;

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "ViewController.h"
 #import "DataParser.h"
+#import "ServerConnectorModel.h"
 
 @protocol ServerConnectorDelegate <NSObject>
 
@@ -24,6 +25,7 @@
     UINavigationController *navController;
     
     @protected
+    ServerConnectorModel *model;
     ViewController *rootController;
     DataParser *dataParser;
 }
@@ -37,9 +39,9 @@
 @property (weak, nonatomic) id<ServerConnectorDelegate> delegate;
 
 @property (strong, nonatomic) ViewController *rootController;
-
 @property (strong, nonatomic) UINavigationController *navController;
 @property (strong, nonatomic) DataParser *dataParser;
+@property (strong, nonatomic) ServerConnectorModel *model;
 
 
 #pragma -

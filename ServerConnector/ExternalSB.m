@@ -60,11 +60,11 @@
 
     
     
-    NSArray *keys = [NSArray arrayWithObjects:@"Name", @"IP/DNS", @"Port", @"Root", @"ID", nil];
-    NSArray *value = [NSArray arrayWithObjects:@"NicklasServer", @"http://127.0.0.1", @"9888", @"ServerConnector", @"1", nil];
-    NSDictionary *dict = [NSDictionary dictionaryWithObjects:value forKeys:keys];
-//    
-    [self.SC setActiveServerWithDict:dict DisplayResultInUI:NO]; 
+//    NSArray *keys = [NSArray arrayWithObjects:@"Name", @"IP/DNS", @"Port", @"Root", @"ID", nil];
+//    NSArray *value = [NSArray arrayWithObjects:@"NicklasServer", @"http://127.0.0.1", @"9888", @"ServerConnector", @"1", nil];
+//    NSDictionary *dict = [NSDictionary dictionaryWithObjects:value forKeys:keys];
+////    
+//    [self.SC setActiveServerWithDict:dict DisplayResultInUI:NO]; 
    // [self showUIActionSheetWithString:@"Hej"];
     //Updating Label
 
