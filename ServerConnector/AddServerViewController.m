@@ -147,6 +147,23 @@
     rootTextField = [[UITextField alloc] initWithFrame:frame];
     idTextField = [[UITextField alloc] initWithFrame:frame];
     
+    nameTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    nameTextField.autocorrectionType = UITextAutocorrectionTypeNo;
+    
+    ipTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    ipTextField.autocorrectionType = UITextAutocorrectionTypeNo;
+    
+    portTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    portTextField.autocorrectionType = UITextAutocorrectionTypeNo;
+    
+    rootTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    rootTextField.autocorrectionType = UITextAutocorrectionTypeNo;
+    
+    idTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    idTextField.autocorrectionType = UITextAutocorrectionTypeNo;
+    
+    
+    
     self.arrayWithFields = [[NSArray alloc]initWithObjects:nameTextField, ipTextField, portTextField, rootTextField, idTextField, nil];
     
     NSInteger a = 0;
