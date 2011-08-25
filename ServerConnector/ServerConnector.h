@@ -13,8 +13,10 @@
 
 @protocol ServerConnectorDelegate <NSObject>
 
+@optional
 -(void)serverConnectorWillExit;
 -(void)showUIActionSheetWithString:(NSString *)stringToShow;
+-(void)didLoginSuccesfully:(BOOL)bolean;
 
 @end
 
@@ -28,6 +30,8 @@
     ServerConnectorModel *model;
     ViewController *rootController;
     DataParser *dataParser;
+    
+    bool loginValid;
 }
 
 - (id)initAndCreateUIForDevice:(NSString *)deviceName;
@@ -58,7 +62,10 @@
 #pragma -
 #pragma mark ServerConnectorActions
 - (void)loginWithUserName:(NSString *)userName andPassword:(NSString *)password;
-- (void)didLogInWithCredentials:(NSString *)userName andPassword:(NSString *)password;
+- (void)registerNewUser:(NSDictionary *)userDetails;
+- (void)didLogInWithCredentials:(NSArray *)arrayWithUserAndPassword;
 - (void)errorWhileLoadingDataWithInfo:(NSString *)info;
+
+- (void)threadReturnLogin:(NSArray *)arrayWithUserAndPassword;
 
 @end

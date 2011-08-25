@@ -49,8 +49,37 @@
         return NO;
     }
     
+}
+
+- (BOOL )registerNewUserOnServer:(NSDictionary *)dict withUserDetails:(NSDictionary *)userDetails
+{
+        NSString *URL = [NSString stringWithFormat:@"%@:%@/%@/registerUser.php?username=%@&password=%@&email=%@",
+                        [dict objectForKey:@"IP/DNS"], 
+                        [dict objectForKey:@"Port"], 
+                        [dict objectForKey:@"Root"], 
+                        [userDetails objectForKey:@"Username"], 
+                        [userDetails objectForKey:@"Password"],
+                         [userDetails objectForKey:@"Email"]];
+
+    NSMutableURLRequest* post = [NSURLRequest requestWithURL:[NSURL URLWithString:[URL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] ]];
     
-    return NULL;
+    
+    NSURLResponse* response;
+    NSError* error;
+    NSData *result = [NSURLConnection sendSynchronousRequest:post returningResponse:&response error:&error];
+    NSString *resultString = [[NSString alloc] initWithData:result encoding:NSASCIIStringEncoding];
+
+    
+    if ([resultString boolValue] == true)
+    {
+        return YES;     
+    }
+    
+    else
+    {
+        
+        return NO;
+    }
 }
 
 - (BOOL)testServerWithDictionary:(NSDictionary *)dict
