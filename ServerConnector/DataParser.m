@@ -113,7 +113,35 @@
     
     
 }
+- (NSArray *)downloadArrayWithInformationWithDict:(NSDictionary *)dict andIdentifier:(NSString *)identifier;
+{
+    NSString *scriptName;
+    //Should be more generic:
+    if ([identifier isEqualToString:@"Categories"])
+    {
+        scriptName = @"loadAllCategories.php";
+    }else if ([identifier isEqualToString:@"Languages"])
+    {        
+        scriptName = @"loadAllLanguages.php";
 
+    }
+        NSString *URL = [NSString stringWithFormat:@"%@:%@/%@/%@",[dict objectForKey:@"IP/DNS"], [dict objectForKey:@"Port"], [dict objectForKey:@"Root"], scriptName];
+
+            NSError* error;
+        NSString *rawJSON = [[NSString alloc] initWithContentsOfURL:[NSURL URLWithString:URL] encoding:NSUTF8StringEncoding error:&error];
+        [rawJSON UTF8String];
+        
+        
+        if (parser == NULL)
+        {
+        parser = [[SBJsonParser alloc] init];
+        }
+    
+        NSArray *arrayWithData = [[parser objectWithString:rawJSON error:nil] copy];
+
+        return arrayWithData;
+        
+}
 
 
 

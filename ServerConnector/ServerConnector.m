@@ -12,7 +12,7 @@
 #pragma mark Initialization
 
 @implementation ServerConnector
-@synthesize navController, rootController, dataParser, model;
+@synthesize navController, rootController, dataParser, model, identifier;
 
 @synthesize delegate;
 
@@ -163,7 +163,6 @@
 
 - (void)loginWithUserName:(NSString *)userName andPassword:(NSString *)password
 {
-    loginValid = NO;
     
     dispatch_queue_t loginThread = dispatch_queue_create("Login-thread", NULL);
     dispatch_async(loginThread, ^{
@@ -220,9 +219,33 @@
         }
         
     });
+    dispatch_release(registerThread);
 
     
+}
+
+- (void)downloadArrayWithInformationWithIdentifier:(NSString *)identifierIN;
+{
+    dispatch_queue_t downloadArrayWithInformationWithIdentifier = dispatch_queue_create("downloadArrayWithInformationWithIdentifier", NULL);
+    dispatch_async(downloadArrayWithInformationWithIdentifier, ^{
+        
+        NSArray *arrayWithResult = [self.dataParser downloadArrayWithInformationWithDict:[self requestActiveServerData] andIdentifier:identifierIN];
+        
+
+            self.identifier = identifierIN;
+        
+        [self performSelectorOnMainThread:@selector(saveArrayWithInformationWithIdentifier:) withObject:arrayWithResult waitUntilDone:YES];
+        
+    });
     
+    dispatch_release(downloadArrayWithInformationWithIdentifier);
+
+}
+
+- (void)saveArrayWithInformationWithIdentifier:(NSArray *)arrayToSave
+{
+   
+    [delegate arrayFromThread:arrayToSave withIdentifier:self.identifier];
 }
 
 - (void)errorWhileLoadingDataWithInfo:(NSString *)info

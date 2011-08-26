@@ -18,6 +18,9 @@
 -(void)showUIActionSheetWithString:(NSString *)stringToShow;
 -(void)didLoginSuccesfully:(BOOL)bolean;
 
+//Threaded responses:
+-(void)arrayFromThread:(NSArray *)arrayFromThread withIdentifier:(NSString *)identifierIN;
+
 @end
 
 
@@ -32,6 +35,8 @@
     DataParser *dataParser;
     
     bool loginValid;
+    
+    NSString *identifier;
 }
 
 - (id)initAndCreateUIForDevice:(NSString *)deviceName;
@@ -39,9 +44,8 @@
 
 //Serverconnector Functions:
 
-
+@property (strong, nonatomic) NSString *identifier;
 @property (weak, nonatomic) id<ServerConnectorDelegate> delegate;
-
 @property (strong, nonatomic) ViewController *rootController;
 @property (strong, nonatomic) UINavigationController *navController;
 @property (strong, nonatomic) DataParser *dataParser;
@@ -66,6 +70,10 @@
 - (void)didLogInWithCredentials:(NSArray *)arrayWithUserAndPassword;
 - (void)errorWhileLoadingDataWithInfo:(NSString *)info;
 
-- (void)threadReturnLogin:(NSArray *)arrayWithUserAndPassword;
+//Generic Download-methods:
+- (void)downloadArrayWithInformationWithIdentifier:(NSString *)identfier;
+- (void)saveArrayWithInformationWithIdentifier:(NSArray *)arrayToSave;
+
+
 
 @end

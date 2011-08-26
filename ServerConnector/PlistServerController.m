@@ -50,7 +50,7 @@
                                                          errorDescription:&error];
     if(plistData) {
         [plistData writeToFile:plistPath atomically:YES];
-        NSLog(@"Funkis");
+        
     }
     else {
         NSLog(@"%@", error);
@@ -79,7 +79,7 @@ else
                                                              errorDescription:&error];
         if(plistData) {
             [plistData writeToFile:plistPath atomically:YES];
-            NSLog(@"Funkis");
+            
         }
         else {
             NSLog(@"%@", error);

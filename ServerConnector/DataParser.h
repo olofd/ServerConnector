@@ -21,9 +21,11 @@
 
 
 - (BOOL )registerNewUserOnServer:(NSDictionary *)dict withUserDetails:(NSDictionary *)userDetails;
-
--(BOOL)loginOnServer:(NSDictionary *)dict withUsername:(NSString *)userName andPassword:(NSString *)password;
+- (BOOL)loginOnServer:(NSDictionary *)dict withUsername:(NSString *)userName andPassword:(NSString *)password;
 - (BOOL)testServerWithDictionary:(NSDictionary *)dict;
+- (NSArray *)downloadArrayWithInformationWithDict:(NSDictionary *)dict andIdentifier:(NSString *)identifier;
+
+
 
 @property (strong, nonatomic) PlistServerController *plistController;
 
